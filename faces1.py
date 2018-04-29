@@ -1,10 +1,11 @@
 import random
+import h5py
 import numpy as np
 from PIL import Image
 import PIL.ImageOps
 import matplotlib.pyplot as plt
 from sklearn.utils import shuffle
-from keras.models import Sequential, Model
+from keras.models import Sequential, Model, load_model
 from keras.layers import Dense, Dropout, Input, Lambda, Conv2D, Flatten, MaxPooling2D, merge
 from keras.optimizers import Adam, RMSprop, SGD
 from keras.losses import binary_crossentropy
@@ -12,30 +13,17 @@ from keras.regularizers import l2
 from keras import backend as K
 from process_faces import SiameseLoader, DataLoader, show_pair
 
-def imshow(img, text=None, save=False):
-    npimg = img.numpy()
-    plt.axis("off")
-    if text:
-        plt.text(75,8,text,style='italic',fontweight='bold',
-                 bbox={'facecolor':'white', 'alpha':0.8, 'pad':10})
-    plt.imshow(np.transpose(npimg,(1,2,0)))
-    plt.show()
-
-def show_plot(iteration,loss):
-    plt.plot(iteration,loss)
-    plt.show()
-
-
 config = {'training_dir'     : './data/faces/training/',
           'testing_dir'      : './data/faces/evaluation/',
-          'train_batch_size' : 128,
-          'epoch'            : 100}
+          'train_batch_size' : 64,
+          'epoch'            : 500}
 
 samples = SiameseLoader()
 samples.load_data(config['training_dir'])
 samples.load_data(config['testing_dir'],'testing')
 
-data_samples = DataLoader('./data/faces')
+
+# data_samples = DataLoader('./data/faces')
 
 # Model
 def W_init(shape,name=None):
@@ -58,6 +46,8 @@ def contrastive_loss(y_true, y_pred):
     margin = 1
     return K.mean(y_true * K.square(y_pred) + (1 - y_true) * K.square(K.maximum(margin - y_pred,0)))
 
+
+# MODEL
 input_shape = (112, 92, 1)
 left_input = Input(input_shape)
 right_input = Input(input_shape)
@@ -88,7 +78,8 @@ L1_distance = lambda x : K.abs(x[0]-x[1])
 # distance = Lambda(euclidean_distance, output_shape=eucl_dist_output_shape)([encoded_l,encoded_r])
 # siamese_net = Model(input=[left_input,right_input],output=distance)
 
-# optimizer = Adam(lr=0.00006, decay=0.00001)
+# optimizer = Adam(0.00006)
+optimizer = Adam(0.0005)
 
 both = merge([encoded_l,encoded_r], mode=L1_distance, output_shape=lambda x: x[0])
 prediction = Dense(1,activation='sigmoid',kernel_initializer=W_init,
@@ -100,25 +91,85 @@ siamese_net = Model(input=[left_input,right_input],output=prediction)
 siamese_net.compile(loss='binary_crossentropy',optimizer=optimizer)
 siamese_net.count_params()
 
+
+def test_oneshot(loader, model, N, num_trials, verbose=True):
+    '''
+    Test average N way one-shot learning accuracy over num_trials one-shot tasks
+	N is the number of images of different people in the one-shot task
+    '''
+    correct_count = 0
+    if verbose:
+        print('---- Evaluating model on one-shot tasks ...'.format(N))
+    for i in range(num_trials):
+        inputs, true_class, support_set_classes = loader.make_oneshot_task(N)
+        probs = model.predict(inputs)
+        if np.argmax(probs) == 0:
+            correct_count += 1
+    percent_correct = (100.0 * correct_count / num_trials)
+    if verbose:
+        print('---- Got an average of {}% {} way one-shot learning accuracy'.format(percent_correct,N))
+    return percent_correct
+    
 # Training
+N = 9
+test_trials = 100
+test_every = 1
+best = 0
+accuracies = []
+model_path = '/home/rmn/sit/one-shot/models/faces2.h5'
 for epoch in range(config['epoch']):
     print("Epoch : {}".format(epoch))
-    inputs, targets = samples.batch(config['train_batch_size'])
-    inputs = np.array(inputs)
-    inputs = inputs.reshape(2,config['train_batch_size'],112,92)
-    in_left = inputs[0].reshape(config['train_batch_size'],112,92,1)
-    in_right = inputs[1].reshape(config['train_batch_size'],112,92,1)
-    inputs = [in_left, in_right]
-    targets = [int(e1==e2) for e1,e2 in targets]
+    inputs, targets = samples.get_training_batch(config['train_batch_size'])
     print("-- Inputs : {}".format(len(inputs[0])))
     loss = siamese_net.train_on_batch(inputs, targets)
     print("-- Loss : {}".format(loss))
-    
-    
-# for epoch in range(config['epoch']):
-#     print('Epoch : {}'.format(epoch))
-#     inputs, targets = data_samples.get_batch(8)
-#     print('-- Inputs : {}'.format(len(inputs[0])))
-#     loss = siamese_net.train_on_batch(inputs, targets)
-#     print('-- Loss : {}'.format(loss))
+    if epoch % test_every == 0:
+        print("-- Testing on {} one-shot-tasks".format(test_trials))
+        percent_correct = test_oneshot(samples,siamese_net,N,test_trials)
+        accuracies.append(percent_correct)
+        if percent_correct > best:
+            best = percent_correct
+            siamese_net.save(model_path)
+    print("-- Best so far {}".format(best))
+    if epoch > 5:
+        print("-- Last 3 rounds {}, {}, {}".format(accuracies[epoch-1],accuracies[epoch-2],accuracies[epoch-3]))
 
+
+def concat_images(imgs):
+    nc,(h,w,_) = len(imgs),imgs[0].shape
+    pairs = np.zeros((nc,h,w,1))
+    for i in range(nc):
+        pairs[i,:,:,:] = imgs[i].reshape(h,w,1)
+    pairs.reshape(nc,h,w)
+
+    n = np.ceil(np.sqrt(nc)).astype('int8')
+    img = np.zeros((n*h,n*w))
+    x,y = 0,0
+    for example in range(nc):
+        img[x*h:(x+1)*h,y*w:(y+1)*w] = pairs[example].reshape(h,w)
+        y+=1
+        if y>=n:
+            y = 0
+            x += 1
+    return img
+
+def plot_batch(batch):
+    img0 = concat_images(batch[0])
+    img1 = concat_images(batch[1])
+    fig,(ax1,ax2) = plt.subplots(2)
+    ax1.matshow(img0,cmap='gray')
+    ax2.matshow(img1,cmap='gray')
+    plt.xticks([])
+    plt.yticks([])
+    plt.show()
+
+def plot_oneshot_task(target,support):
+    fig,(ax1,ax2) = plt.subplots(2)
+    ax1.matshow(target[0].reshape(112,92),cmap='gray')
+    img = concat_images(support)
+    ax1.get_yaxis().set_visible(False)
+    ax1.get_xaxis().set_visible(False)
+    ax2.matshow(img,cmap='gray')
+    plt.xticks([])
+    plt.yticks([])
+    plt.show()

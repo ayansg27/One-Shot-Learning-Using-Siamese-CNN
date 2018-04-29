@@ -96,9 +96,11 @@ class SiameseLoader(object):
     def __init__(self):
         self.training_data = {}
         self.testing_data = {}
+        self.validation_data = {}
+        self.img_size = (112, 92)
 
     def load_data(self,path,data_type='training'):
-        data = self.training_data if data_type == 'training' else self.testing_data            
+        data = self.training_data if data_type == 'training' else self.testing_data
         for person_id in os.listdir(path):
             data[person_id] = []
             print("Loading person ID: " + person_id)
@@ -111,10 +113,10 @@ class SiameseLoader(object):
                 data[person_id].append(image)
         return
 
-    def random_pair(self,same=0.5):
+    def random_pair(self,same=0.5,data_type='training'):
         imgs = []
         cls = ()
-        data = self.training_data
+        data = self.training_data if data_type is 'training' else self.testing_data
         if np.random.random() > same:
             p = np.random.choice(list(data.keys()))
             rc = np.random.choice(len(data[p]),size=2,replace=False)
@@ -127,30 +129,54 @@ class SiameseLoader(object):
             cls = tuple(ps)
         return imgs, cls
 
-    def batch(self,batch_size,data_type='training'):
-        if data_type is 'training':
-            data = self.training_data
-        else:
-            data = self.testing_data
-
+    def get_training_batch(self,batch_size):
+        '''Get Training Batch. Half of the instances are from the same class'''
         batch, labels = [], []
         for i in range(batch_size):
-            if i > batch_size//2:
-                pair, cls = self.random_pair(2)
+            if i > batch_size // 2:
+                pair, cls = self.random_pair(-1) # same class
             else:
-                pair, cls = self.random_pair(-1)
+                pair, cls = self.random_pair(2) # different class
             batch.append(pair)
             labels.append(cls)
-        return batch, labels
-
-    def get_batch(self,batch_size):
-        data = self.training_data
-        batch, labels = [], []
+            
+        pairs = [np.zeros((batch_size, *self.img_size, 1)) for _ in range(2)]
+        targets = np.zeros((batch_size,))
         for i in range(batch_size):
-            pair = self.random_pair()
-            batch.append(pair[0])
-            labels.append(pair[1])
-        return batch, labels
+            pairs[0][i,:,:,:] = batch[i][0].reshape(*self.img_size,1)
+            pairs[1][i,:,:,:] = batch[i][1].reshape(*self.img_size,1)
+        targets = [int(e1==e2) for e1,e2 in labels] # 1 for same class, 0 for different class
+        return pairs, targets
+
+    def make_oneshot_task(self,N,data_type='testing'):
+        '''
+        Return N one-shot pairs from the test set with only the first pair belonging
+        to the same person
+        Returns :
+        	- test_images (numpy 4d array of size N x img_size x img_size x 1)
+        	- support_set (numpy 4d array of size N x img_size x img_size x 1)
+        '''
+        data = self.testing_data if data_type is 'testing' else self.training_data
+        # get random pair from same class
+        same_pairs, true_class = self.random_pair(-1,data_type)
+        # print('Testing Class : {}'.format(true_class))
+        ptest1, ptest2 = same_pairs
+        test_images = np.zeros((N, *self.img_size, 1))
+
+        for i in range(N):            
+            test_images[i,:,:,:] = ptest1.reshape(*self.img_size,1)
+        
+        support_set = np.zeros((N, *self.img_size, 1))
+        support_classes = []
+        support_set[0,:,:,:] = ptest2.reshape(*self.img_size,1)
+        for i in range(1,N):
+            random_face, cls = self.random_pair(2,data_type)
+            while cls[0] == true_class[0]:
+                random_face, cls = self.random_pair(2,data_type)
+            support_set[i,:,:,:] = random_face[0].reshape(*self.img_size,1)
+            support_classes.append(cls[0])
+
+        return [test_images, support_set], true_class, support_classes
 
 def load_training(path):
     person_dict = {}
