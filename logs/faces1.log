@@ -1,0 +1,3473 @@
+>>> 1 % 1
+0
+>>> 12341 % 1
+0
+>>> 
+
+Process Python finished
+Python 3.6.4 |Anaconda, Inc.| (default, Mar 13 2018, 01:15:57) 
+[GCC 7.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> <_ast.Expr object at 0x7f98298c6cf8>
+python.el: native completion setup loaded
+>>> import random
+...: import h5py
+...: import numpy as np
+...: from PIL import Image
+...: import PIL.ImageOps
+...: import matplotlib.pyplot as plt
+...: from sklearn.utils import shuffle
+...: from keras.models import Sequential, Model, load_model
+...: from keras.layers import Dense, Dropout, Input, Lambda, Conv2D, Flatten, MaxPooling2D, merge
+...: from keras.optimizers import Adam, RMSprop, SGD
+...: ...
+...: def plot_oneshot_task(target,support):
+...:     fig,(ax1,ax2) = plt.subplots(2)
+...:     ax1.matshow(target[0].reshape(112,92),cmap='gray')
+...:     img = concat_images(support)
+...:     ax1.get_yaxis().set_visible(False)
+...:     ax1.get_xaxis().set_visible(False)
+...:     ax2.matshow(img,cmap='gray')
+...:     plt.xticks([])
+...:     plt.yticks([])
+...:     plt.show()
+/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+Loading person ID: s27
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s17
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s7
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s28
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s23
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s24
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s9
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s15
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s18
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s10
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s12
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s4
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s25
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s22
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s3
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s30
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s14
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s5
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s13
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s6
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s1
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s21
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s19
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s20
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s26
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s11
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s16
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s2
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s29
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s8
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s38
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s40
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s34
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s39
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s35
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s31
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s37
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s36
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s32
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s33
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+__main__:84: UserWarning: The `merge` function is deprecated and will be removed after 08/2017. Use instead layers from `keras.layers.merge`, e.g. `add`, `concatenate`, etc.
+/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/keras/legacy/layers.py:465: UserWarning: The `Merge` layer is deprecated and will be removed after 08/2017. Use instead layers from `keras.layers.merge`, e.g. `add`, `concatenate`, etc.
+  name=name)
+__main__:87: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+Epoch : 0
+-- Inputs : 64
+2018-04-23 21:33:22.491935: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+-- Loss : 1.8248096704483032
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 60.0
+Epoch : 1
+-- Inputs : 64
+-- Loss : 1.7497791051864624
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 70.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 2
+-- Inputs : 64
+-- Loss : 1.6461691856384277
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 3
+-- Inputs : 64
+-- Loss : 1.597454309463501
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 70.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 4
+-- Inputs : 64
+-- Loss : 1.5531467199325562
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 5
+-- Inputs : 64
+-- Loss : 1.5387603044509888
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 6
+-- Inputs : 64
+-- Loss : 1.489230751991272
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 70.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 7
+-- Inputs : 64
+-- Loss : 1.4488356113433838
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 8
+-- Inputs : 64
+-- Loss : 1.4117504358291626
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 9
+-- Inputs : 64
+-- Loss : 1.3060861825942993
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 10
+-- Inputs : 64
+-- Loss : 1.2733759880065918
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 11
+-- Inputs : 64
+-- Loss : 1.2134543657302856
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 12
+-- Inputs : 64
+-- Loss : 1.167923092842102
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 13
+-- Inputs : 64
+-- Loss : 1.2165473699569702
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 14
+-- Inputs : 64
+-- Loss : 1.1369850635528564
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 15
+-- Inputs : 64
+-- Loss : 1.0443559885025024
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 16
+-- Inputs : 64
+-- Loss : 1.038949966430664
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 17
+-- Inputs : 64
+-- Loss : 1.0901907682418823
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 18
+-- Inputs : 64
+-- Loss : 1.0266982316970825
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 36.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 19
+-- Inputs : 64
+-- Loss : 1.0734686851501465
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 20
+-- Inputs : 64
+-- Loss : 1.0026452541351318
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 21
+-- Inputs : 64
+-- Loss : 0.9617292284965515
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 22
+-- Inputs : 64
+-- Loss : 0.9439850449562073
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 23
+-- Inputs : 64
+-- Loss : 0.9680172204971313
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 24
+-- Inputs : 64
+-- Loss : 0.9462770819664001
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 25
+-- Inputs : 64
+-- Loss : 0.96345055103302
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 26
+-- Inputs : 64
+-- Loss : 0.8828908801078796
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 27
+-- Inputs : 64
+-- Loss : 0.842411994934082
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 28
+-- Inputs : 64
+-- Loss : 0.9366844892501831
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 29
+-- Inputs : 64
+-- Loss : 0.8435124158859253
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 30
+-- Inputs : 64
+-- Loss : 0.901231050491333
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 31
+-- Inputs : 64
+-- Loss : 0.8486355543136597
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 32
+-- Inputs : 64
+-- Loss : 0.8399011492729187
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 33
+-- Inputs : 64
+-- Loss : 0.7910372614860535
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 34
+-- Inputs : 64
+-- Loss : 0.8212392330169678
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 35
+-- Inputs : 64
+-- Loss : 0.8316781520843506
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 36
+-- Inputs : 64
+-- Loss : 0.8014163970947266
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 37
+-- Inputs : 64
+-- Loss : 0.8126698732376099
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 38
+-- Inputs : 64
+-- Loss : 0.8092189431190491
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 39
+-- Inputs : 64
+-- Loss : 0.722274661064148
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 40
+-- Inputs : 64
+-- Loss : 0.8356201648712158
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 41
+-- Inputs : 64
+-- Loss : 0.7378381490707397
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 42
+-- Inputs : 64
+-- Loss : 0.7099376916885376
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 43
+-- Inputs : 64
+-- Loss : 0.7792693376541138
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 44
+-- Inputs : 64
+-- Loss : 0.8223146796226501
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 70.0
+Epoch : 45
+-- Inputs : 64
+-- Loss : 0.7481353282928467
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 72.0% 9 way one-shot learning accuracy
+ -- Best so far 72.0
+Epoch : 46
+-- Inputs : 64
+-- Loss : 0.7848765254020691
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 72.0
+Epoch : 47
+-- Inputs : 64
+-- Loss : 0.7571762800216675
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 72.0
+Epoch : 48
+-- Inputs : 64
+-- Loss : 0.7713950276374817
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 72.0
+Epoch : 49
+-- Inputs : 64
+-- Loss : 0.7556717991828918
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 72.0
+Epoch : 50
+-- Inputs : 64
+-- Loss : 0.6648356318473816
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 72.0
+Epoch : 51
+-- Inputs : 64
+-- Loss : 0.6808825135231018
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 72.0
+Epoch : 52
+-- Inputs : 64
+-- Loss : 0.7320436835289001
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 72.0
+Epoch : 53
+-- Inputs : 64
+-- Loss : 0.7087591886520386
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 72.0
+Epoch : 54
+-- Inputs : 64
+-- Loss : 0.7038498520851135
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 72.0
+Epoch : 55
+-- Inputs : 64
+-- Loss : 0.7637364268302917
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 76.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 56
+-- Inputs : 64
+-- Loss : 0.6989354491233826
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 57
+-- Inputs : 64
+-- Loss : 0.7617219090461731
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 58
+-- Inputs : 64
+-- Loss : 0.7265877723693848
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 59
+-- Inputs : 64
+-- Loss : 0.6842448115348816
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 60
+-- Inputs : 64
+-- Loss : 0.703961193561554
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 68.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 61
+-- Inputs : 64
+-- Loss : 0.7083896994590759
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 62
+-- Inputs : 64
+-- Loss : 0.7094444632530212
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 63
+-- Inputs : 64
+-- Loss : 0.7334086894989014
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 64
+-- Inputs : 64
+-- Loss : 0.6817023754119873
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 65
+-- Inputs : 64
+-- Loss : 0.6850236654281616
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 66
+-- Inputs : 64
+-- Loss : 0.6228024959564209
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 67
+-- Inputs : 64
+-- Loss : 0.6341503858566284
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 70.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 68
+-- Inputs : 64
+-- Loss : 0.686599612236023
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 69
+-- Inputs : 64
+-- Loss : 0.6542825102806091
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 70
+-- Inputs : 64
+-- Loss : 0.6896665692329407
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 71
+-- Inputs : 64
+-- Loss : 0.6666680574417114
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 72
+-- Inputs : 64
+-- Loss : 0.6909511089324951
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 73
+-- Inputs : 64
+-- Loss : 0.6686734557151794
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 74
+-- Inputs : 64
+-- Loss : 0.6913695335388184
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 75
+-- Inputs : 64
+-- Loss : 0.6678099632263184
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 76
+-- Inputs : 64
+-- Loss : 0.6522559523582458
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 77
+-- Inputs : 64
+-- Loss : 0.6499714851379395
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 78
+-- Inputs : 64
+-- Loss : 0.6873774528503418
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 79
+-- Inputs : 64
+-- Loss : 0.6656816601753235
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 80
+-- Inputs : 64
+-- Loss : 0.6565373539924622
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 81
+-- Inputs : 64
+-- Loss : 0.6137604117393494
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 82
+-- Inputs : 64
+-- Loss : 0.6303392052650452
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 83
+-- Inputs : 64
+-- Loss : 0.5811728239059448
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 84
+-- Inputs : 64
+-- Loss : 0.658353328704834
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 85
+-- Inputs : 64
+-- Loss : 0.6057656407356262
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 86
+-- Inputs : 64
+-- Loss : 0.5967096090316772
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 87
+-- Inputs : 64
+-- Loss : 0.7224341034889221
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 88
+-- Inputs : 64
+-- Loss : 0.6828361749649048
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 89
+-- Inputs : 64
+-- Loss : 0.6443639993667603
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 90
+-- Inputs : 64
+-- Loss : 0.6485788822174072
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 91
+-- Inputs : 64
+-- Loss : 0.6616188287734985
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 92
+-- Inputs : 64
+-- Loss : 0.6101625561714172
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 93
+-- Inputs : 64
+-- Loss : 0.6750597953796387
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 94
+-- Inputs : 64
+-- Loss : 0.5995780229568481
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 95
+-- Inputs : 64
+-- Loss : 0.6616476774215698
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 96
+-- Inputs : 64
+-- Loss : 0.6237114667892456
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 97
+-- Inputs : 64
+-- Loss : 0.6167840957641602
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 98
+-- Inputs : 64
+-- Loss : 0.5982505083084106
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 99
+-- Inputs : 64
+-- Loss : 0.6010405421257019
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 100
+-- Inputs : 64
+-- Loss : 0.6502153277397156
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 101
+-- Inputs : 64
+-- Loss : 0.6266711950302124
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 102
+-- Inputs : 64
+-- Loss : 0.6068381071090698
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 103
+-- Inputs : 64
+-- Loss : 0.6674746870994568
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 104
+-- Inputs : 64
+-- Loss : 0.5491760969161987
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 105
+-- Inputs : 64
+-- Loss : 0.6532725095748901
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 106
+-- Inputs : 64
+-- Loss : 0.6327058672904968
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 107
+-- Inputs : 64
+-- Loss : 0.5876879692077637
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 68.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 108
+-- Inputs : 64
+-- Loss : 0.5458764433860779
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 109
+-- Inputs : 64
+-- Loss : 0.6380777955055237
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 110
+-- Inputs : 64
+-- Loss : 0.615745484828949
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 111
+-- Inputs : 64
+-- Loss : 0.6335787773132324
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 112
+-- Inputs : 64
+-- Loss : 0.6381437182426453
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 113
+-- Inputs : 64
+-- Loss : 0.6141205430030823
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 114
+-- Inputs : 64
+-- Loss : 0.6088598966598511
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 115
+-- Inputs : 64
+-- Loss : 0.6212210059165955
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 116
+-- Inputs : 64
+-- Loss : 0.5849001407623291
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 68.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 117
+-- Inputs : 64
+-- Loss : 0.6103634834289551
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 118
+-- Inputs : 64
+-- Loss : 0.5652167797088623
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 70.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 119
+-- Inputs : 64
+-- Loss : 0.587506890296936
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 120
+-- Inputs : 64
+-- Loss : 0.5486612915992737
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 121
+-- Inputs : 64
+-- Loss : 0.5672704577445984
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 122
+-- Inputs : 64
+-- Loss : 0.6089855432510376
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 123
+-- Inputs : 64
+-- Loss : 0.5781892538070679
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 124
+-- Inputs : 64
+-- Loss : 0.6266454458236694
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 125
+-- Inputs : 64
+-- Loss : 0.5810728073120117
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 126
+-- Inputs : 64
+-- Loss : 0.5764703154563904
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 127
+-- Inputs : 64
+-- Loss : 0.5080094337463379
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 128
+-- Inputs : 64
+-- Loss : 0.5705477595329285
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 129
+-- Inputs : 64
+-- Loss : 0.5331469774246216
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 130
+-- Inputs : 64
+-- Loss : 0.5680385231971741
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 131
+-- Inputs : 64
+-- Loss : 0.5734577178955078
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 76.0
+Epoch : 132
+-- Inputs : 64
+-- Loss : 0.5904799699783325
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 80.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 133
+-- Inputs : 64
+-- Loss : 0.5511366724967957
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 134
+-- Inputs : 64
+-- Loss : 0.5652720332145691
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 135
+-- Inputs : 64
+-- Loss : 0.5571535229682922
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 136
+-- Inputs : 64
+-- Loss : 0.5629197359085083
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 137
+-- Inputs : 64
+-- Loss : 0.6176064014434814
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 138
+-- Inputs : 64
+-- Loss : 0.5314794778823853
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 139
+-- Inputs : 64
+-- Loss : 0.5374636054039001
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 140
+-- Inputs : 64
+-- Loss : 0.5188347697257996
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 141
+-- Inputs : 64
+-- Loss : 0.5716057419776917
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 142
+-- Inputs : 64
+-- Loss : 0.5557162761688232
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 143
+-- Inputs : 64
+-- Loss : 0.5234240889549255
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 144
+-- Inputs : 64
+-- Loss : 0.47554221749305725
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 145
+-- Inputs : 64
+-- Loss : 0.5222854018211365
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 146
+-- Inputs : 64
+-- Loss : 0.5867235660552979
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 147
+-- Inputs : 64
+-- Loss : 0.5772378444671631
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 148
+-- Inputs : 64
+-- Loss : 0.5653647184371948
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 149
+-- Inputs : 64
+-- Loss : 0.5675672292709351
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 150
+-- Inputs : 64
+-- Loss : 0.6014977693557739
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 151
+-- Inputs : 64
+-- Loss : 0.5052545070648193
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 152
+-- Inputs : 64
+-- Loss : 0.5533177852630615
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 153
+-- Inputs : 64
+-- Loss : 0.5804329514503479
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 154
+-- Inputs : 64
+-- Loss : 0.5603012442588806
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 155
+-- Inputs : 64
+-- Loss : 0.5440641045570374
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 156
+-- Inputs : 64
+-- Loss : 0.595461368560791
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 157
+-- Inputs : 64
+-- Loss : 0.47334226965904236
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 158
+-- Inputs : 64
+-- Loss : 0.5503111481666565
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 159
+-- Inputs : 64
+-- Loss : 0.5279394388198853
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 160
+-- Inputs : 64
+-- Loss : 0.5683298707008362
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 161
+-- Inputs : 64
+-- Loss : 0.5767126083374023
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 162
+-- Inputs : 64
+-- Loss : 0.5511239767074585
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 163
+-- Inputs : 64
+-- Loss : 0.4951130151748657
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 164
+-- Inputs : 64
+-- Loss : 0.48040956258773804
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 165
+-- Inputs : 64
+-- Loss : 0.5304054021835327
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 166
+-- Inputs : 64
+-- Loss : 0.514279305934906
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 167
+-- Inputs : 64
+-- Loss : 0.486310750246048
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 168
+-- Inputs : 64
+-- Loss : 0.47225186228752136
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 169
+-- Inputs : 64
+-- Loss : 0.5035911798477173
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 34.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 170
+-- Inputs : 64
+-- Loss : 0.535335898399353
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 171
+-- Inputs : 64
+-- Loss : 0.5260539054870605
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 172
+-- Inputs : 64
+-- Loss : 0.529677152633667
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 173
+-- Inputs : 64
+-- Loss : 0.5035795569419861
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 174
+-- Inputs : 64
+-- Loss : 0.5308843851089478
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 175
+-- Inputs : 64
+-- Loss : 0.49825572967529297
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 176
+-- Inputs : 64
+-- Loss : 0.5605494379997253
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 177
+-- Inputs : 64
+-- Loss : 0.5778084993362427
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 178
+-- Inputs : 64
+-- Loss : 0.44685420393943787
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 80.0
+Epoch : 179
+-- Inputs : 64
+-- Loss : 0.45348218083381653
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 82.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 180
+-- Inputs : 64
+-- Loss : 0.511951208114624
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 74.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 181
+-- Inputs : 64
+-- Loss : 0.4032628834247589
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 182
+-- Inputs : 64
+-- Loss : 0.5189586877822876
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 183
+-- Inputs : 64
+-- Loss : 0.5081143379211426
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 184
+-- Inputs : 64
+-- Loss : 0.4512220621109009
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 68.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 185
+-- Inputs : 64
+-- Loss : 0.5274795889854431
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 186
+-- Inputs : 64
+-- Loss : 0.5727325081825256
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 187
+-- Inputs : 64
+-- Loss : 0.48976394534111023
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 188
+-- Inputs : 64
+-- Loss : 0.5023852586746216
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 189
+-- Inputs : 64
+-- Loss : 0.47063973546028137
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 190
+-- Inputs : 64
+-- Loss : 0.46859726309776306
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 191
+-- Inputs : 64
+-- Loss : 0.5231491923332214
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 192
+-- Inputs : 64
+-- Loss : 0.47500544786453247
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 193
+-- Inputs : 64
+-- Loss : 0.46444952487945557
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 194
+-- Inputs : 64
+-- Loss : 0.48568102717399597
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 195
+-- Inputs : 64
+-- Loss : 0.46144863963127136
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 196
+-- Inputs : 64
+-- Loss : 0.5134578943252563
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 197
+-- Inputs : 64
+-- Loss : 0.5460747480392456
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 198
+-- Inputs : 64
+-- Loss : 0.45149481296539307
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 199
+-- Inputs : 64
+-- Loss : 0.489724338054657
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 32.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 200
+-- Inputs : 64
+-- Loss : 0.6003444790840149
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 201
+-- Inputs : 64
+-- Loss : 0.5267419815063477
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 202
+-- Inputs : 64
+-- Loss : 0.5665804743766785
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 34.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 203
+-- Inputs : 64
+-- Loss : 0.5678530931472778
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 204
+-- Inputs : 64
+-- Loss : 0.47734707593917847
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 205
+-- Inputs : 64
+-- Loss : 0.5274515748023987
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 206
+-- Inputs : 64
+-- Loss : 0.5652585029602051
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 207
+-- Inputs : 64
+-- Loss : 0.49417462944984436
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 208
+-- Inputs : 64
+-- Loss : 0.5280103087425232
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 209
+-- Inputs : 64
+-- Loss : 0.473551481962204
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 74.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 210
+-- Inputs : 64
+-- Loss : 0.5459059476852417
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 211
+-- Inputs : 64
+-- Loss : 0.4962404668331146
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 212
+-- Inputs : 64
+-- Loss : 0.3967685401439667
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 213
+-- Inputs : 64
+-- Loss : 0.4493682384490967
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 214
+-- Inputs : 64
+-- Loss : 0.43442484736442566
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 215
+-- Inputs : 64
+-- Loss : 0.43259397149086
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 216
+-- Inputs : 64
+-- Loss : 0.4973945915699005
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 217
+-- Inputs : 64
+-- Loss : 0.5053582191467285
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 218
+-- Inputs : 64
+-- Loss : 0.4188111424446106
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 219
+-- Inputs : 64
+-- Loss : 0.5292719006538391
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 220
+-- Inputs : 64
+-- Loss : 0.5946891903877258
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 221
+-- Inputs : 64
+-- Loss : 0.5181017518043518
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 36.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 222
+-- Inputs : 64
+-- Loss : 0.5125271081924438
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 223
+-- Inputs : 64
+-- Loss : 0.5317875742912292
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 224
+-- Inputs : 64
+-- Loss : 0.5341078042984009
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 225
+-- Inputs : 64
+-- Loss : 0.47043129801750183
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 226
+-- Inputs : 64
+-- Loss : 0.4822908341884613
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 227
+-- Inputs : 64
+-- Loss : 0.5253162980079651
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 228
+-- Inputs : 64
+-- Loss : 0.5381921529769897
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 229
+-- Inputs : 64
+-- Loss : 0.4398433268070221
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 230
+-- Inputs : 64
+-- Loss : 0.4388625919818878
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 231
+-- Inputs : 64
+-- Loss : 0.45900481939315796
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 232
+-- Inputs : 64
+-- Loss : 0.3830716013908386
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 72.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 233
+-- Inputs : 64
+-- Loss : 0.45454588532447815
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 234
+-- Inputs : 64
+-- Loss : 0.3967077136039734
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 235
+-- Inputs : 64
+-- Loss : 0.5064888000488281
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 236
+-- Inputs : 64
+-- Loss : 0.4344262480735779
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 237
+-- Inputs : 64
+-- Loss : 0.5162099003791809
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 238
+-- Inputs : 64
+-- Loss : 0.45127010345458984
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 239
+-- Inputs : 64
+-- Loss : 0.38301119208335876
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 240
+-- Inputs : 64
+-- Loss : 0.45321014523506165
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 241
+-- Inputs : 64
+-- Loss : 0.37775760889053345
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 68.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 242
+-- Inputs : 64
+-- Loss : 0.33530735969543457
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 243
+-- Inputs : 64
+-- Loss : 0.4202020466327667
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 244
+-- Inputs : 64
+-- Loss : 0.4188176691532135
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 245
+-- Inputs : 64
+-- Loss : 0.369161456823349
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 246
+-- Inputs : 64
+-- Loss : 0.3634691536426544
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 247
+-- Inputs : 64
+-- Loss : 0.3794654309749603
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 248
+-- Inputs : 64
+-- Loss : 0.45049169659614563
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 249
+-- Inputs : 64
+-- Loss : 0.4541333317756653
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 250
+-- Inputs : 64
+-- Loss : 0.47358280420303345
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 251
+-- Inputs : 64
+-- Loss : 0.43118947744369507
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 252
+-- Inputs : 64
+-- Loss : 0.29679015278816223
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 253
+-- Inputs : 64
+-- Loss : 0.473868191242218
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 254
+-- Inputs : 64
+-- Loss : 0.4620189666748047
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 255
+-- Inputs : 64
+-- Loss : 0.4539703130722046
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 256
+-- Inputs : 64
+-- Loss : 0.37310296297073364
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 257
+-- Inputs : 64
+-- Loss : 0.4362596273422241
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 258
+-- Inputs : 64
+-- Loss : 0.4140673279762268
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 259
+-- Inputs : 64
+-- Loss : 0.4825311601161957
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 260
+-- Inputs : 64
+-- Loss : 0.3634140193462372
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 261
+-- Inputs : 64
+-- Loss : 0.38147735595703125
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 262
+-- Inputs : 64
+-- Loss : 0.3344227075576782
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 263
+-- Inputs : 64
+-- Loss : 0.41170501708984375
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 264
+-- Inputs : 64
+-- Loss : 0.4227074384689331
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 265
+-- Inputs : 64
+-- Loss : 0.2842912971973419
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 266
+-- Inputs : 64
+-- Loss : 0.48109376430511475
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 267
+-- Inputs : 64
+-- Loss : 0.41042715311050415
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 268
+-- Inputs : 64
+-- Loss : 0.3715362846851349
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 269
+-- Inputs : 64
+-- Loss : 0.45220768451690674
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 270
+-- Inputs : 64
+-- Loss : 0.36856359243392944
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 271
+-- Inputs : 64
+-- Loss : 0.468912810087204
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 272
+-- Inputs : 64
+-- Loss : 0.38756832480430603
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 273
+-- Inputs : 64
+-- Loss : 0.3619995415210724
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 274
+-- Inputs : 64
+-- Loss : 0.3766636848449707
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 275
+-- Inputs : 64
+-- Loss : 0.4120045304298401
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 276
+-- Inputs : 64
+-- Loss : 0.4137062132358551
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 277
+-- Inputs : 64
+-- Loss : 0.5015182495117188
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 278
+-- Inputs : 64
+-- Loss : 0.389749675989151
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 68.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 279
+-- Inputs : 64
+-- Loss : 0.4463561177253723
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 280
+-- Inputs : 64
+-- Loss : 0.3452189266681671
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 70.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 281
+-- Inputs : 64
+-- Loss : 0.3931143283843994
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 282
+-- Inputs : 64
+-- Loss : 0.3486480712890625
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 283
+-- Inputs : 64
+-- Loss : 0.47212690114974976
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 284
+-- Inputs : 64
+-- Loss : 0.4730451703071594
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 285
+-- Inputs : 64
+-- Loss : 0.3652370274066925
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 286
+-- Inputs : 64
+-- Loss : 0.3034723997116089
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 287
+-- Inputs : 64
+-- Loss : 0.439510315656662
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 288
+-- Inputs : 64
+-- Loss : 0.34663787484169006
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 289
+-- Inputs : 64
+-- Loss : 0.3624267280101776
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 34.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 290
+-- Inputs : 64
+-- Loss : 0.3312537670135498
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 291
+-- Inputs : 64
+-- Loss : 0.4833230674266815
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 292
+-- Inputs : 64
+-- Loss : 0.36379289627075195
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 293
+-- Inputs : 64
+-- Loss : 0.5354383587837219
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 294
+-- Inputs : 64
+-- Loss : 0.3842094838619232
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 70.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 295
+-- Inputs : 64
+-- Loss : 0.3407246768474579
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 296
+-- Inputs : 64
+-- Loss : 0.38411107659339905
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 297
+-- Inputs : 64
+-- Loss : 0.37943539023399353
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 298
+-- Inputs : 64
+-- Loss : 0.3996724486351013
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 299
+-- Inputs : 64
+-- Loss : 0.466037392616272
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 300
+-- Inputs : 64
+-- Loss : 0.38394999504089355
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 301
+-- Inputs : 64
+-- Loss : 0.4593396484851837
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 302
+-- Inputs : 64
+-- Loss : 0.38485270738601685
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 76.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 303
+-- Inputs : 64
+-- Loss : 0.41201746463775635
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 304
+-- Inputs : 64
+-- Loss : 0.44306859374046326
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 70.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 305
+-- Inputs : 64
+-- Loss : 0.5282292366027832
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 306
+-- Inputs : 64
+-- Loss : 0.42131099104881287
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 307
+-- Inputs : 64
+-- Loss : 0.4858196973800659
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 308
+-- Inputs : 64
+-- Loss : 0.40108922123908997
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 309
+-- Inputs : 64
+-- Loss : 0.4707784056663513
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 72.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 310
+-- Inputs : 64
+-- Loss : 0.45037785172462463
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 68.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 311
+-- Inputs : 64
+-- Loss : 0.47048255801200867
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 312
+-- Inputs : 64
+-- Loss : 0.3908223807811737
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 313
+-- Inputs : 64
+-- Loss : 0.4078245460987091
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 314
+-- Inputs : 64
+-- Loss : 0.41058069467544556
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 315
+-- Inputs : 64
+-- Loss : 0.5002232789993286
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 316
+-- Inputs : 64
+-- Loss : 0.42307695746421814
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 317
+-- Inputs : 64
+-- Loss : 0.44226789474487305
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 318
+-- Inputs : 64
+-- Loss : 0.4954146444797516
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 319
+-- Inputs : 64
+-- Loss : 0.4504135549068451
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 320
+-- Inputs : 64
+-- Loss : 0.38751572370529175
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 321
+-- Inputs : 64
+-- Loss : 0.45497065782546997
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 322
+-- Inputs : 64
+-- Loss : 0.46397706866264343
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 323
+-- Inputs : 64
+-- Loss : 0.535220205783844
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 324
+-- Inputs : 64
+-- Loss : 0.42232391238212585
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 325
+-- Inputs : 64
+-- Loss : 0.36349692940711975
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 326
+-- Inputs : 64
+-- Loss : 0.3714132606983185
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 327
+-- Inputs : 64
+-- Loss : 0.4219951033592224
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 328
+-- Inputs : 64
+-- Loss : 0.4952058792114258
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 329
+-- Inputs : 64
+-- Loss : 0.409537136554718
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 330
+-- Inputs : 64
+-- Loss : 0.41232478618621826
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 331
+-- Inputs : 64
+-- Loss : 0.4451221823692322
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 332
+-- Inputs : 64
+-- Loss : 0.3320887088775635
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 333
+-- Inputs : 64
+-- Loss : 0.3756926357746124
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 334
+-- Inputs : 64
+-- Loss : 0.438114196062088
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 70.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 335
+-- Inputs : 64
+-- Loss : 0.3430643379688263
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 336
+-- Inputs : 64
+-- Loss : 0.32330411672592163
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 337
+-- Inputs : 64
+-- Loss : 0.335723340511322
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 32.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 338
+-- Inputs : 64
+-- Loss : 0.38283467292785645
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 339
+-- Inputs : 64
+-- Loss : 0.35415270924568176
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 340
+-- Inputs : 64
+-- Loss : 0.40008679032325745
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 341
+-- Inputs : 64
+-- Loss : 0.3476179242134094
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 68.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 342
+-- Inputs : 64
+-- Loss : 0.38178443908691406
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 343
+-- Inputs : 64
+-- Loss : 0.3923921287059784
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 344
+-- Inputs : 64
+-- Loss : 0.38854455947875977
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 345
+-- Inputs : 64
+-- Loss : 0.40584731101989746
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 346
+-- Inputs : 64
+-- Loss : 0.44764602184295654
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 347
+-- Inputs : 64
+-- Loss : 0.3863147497177124
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 348
+-- Inputs : 64
+-- Loss : 0.3146813213825226
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 349
+-- Inputs : 64
+-- Loss : 0.3080804646015167
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 36.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 350
+-- Inputs : 64
+-- Loss : 0.30005601048469543
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 351
+-- Inputs : 64
+-- Loss : 0.42681795358657837
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 352
+-- Inputs : 64
+-- Loss : 0.2760351002216339
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 353
+-- Inputs : 64
+-- Loss : 0.3034215271472931
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 354
+-- Inputs : 64
+-- Loss : 0.24479232728481293
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 355
+-- Inputs : 64
+-- Loss : 0.3721565306186676
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 356
+-- Inputs : 64
+-- Loss : 0.23121772706508636
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 357
+-- Inputs : 64
+-- Loss : 0.39322179555892944
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 358
+-- Inputs : 64
+-- Loss : 0.401933491230011
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 359
+-- Inputs : 64
+-- Loss : 0.328146755695343
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 360
+-- Inputs : 64
+-- Loss : 0.33428075909614563
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 361
+-- Inputs : 64
+-- Loss : 0.3692881464958191
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 362
+-- Inputs : 64
+-- Loss : 0.3587774932384491
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 363
+-- Inputs : 64
+-- Loss : 0.26652082800865173
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 364
+-- Inputs : 64
+-- Loss : 0.32236677408218384
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 365
+-- Inputs : 64
+-- Loss : 0.3346046507358551
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 366
+-- Inputs : 64
+-- Loss : 0.23762363195419312
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 367
+-- Inputs : 64
+-- Loss : 0.4125227928161621
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 368
+-- Inputs : 64
+-- Loss : 0.3659534156322479
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 369
+-- Inputs : 64
+-- Loss : 0.26356491446495056
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 370
+-- Inputs : 64
+-- Loss : 0.4245942234992981
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 371
+-- Inputs : 64
+-- Loss : 0.36936256289482117
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 372
+-- Inputs : 64
+-- Loss : 0.36922597885131836
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 373
+-- Inputs : 64
+-- Loss : 0.34978607296943665
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 374
+-- Inputs : 64
+-- Loss : 0.3097345530986786
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 375
+-- Inputs : 64
+-- Loss : 0.331287682056427
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 36.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 376
+-- Inputs : 64
+-- Loss : 0.33164045214653015
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 377
+-- Inputs : 64
+-- Loss : 0.40865129232406616
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 378
+-- Inputs : 64
+-- Loss : 0.33363690972328186
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 379
+-- Inputs : 64
+-- Loss : 0.23915590345859528
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 380
+-- Inputs : 64
+-- Loss : 0.2740562856197357
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 381
+-- Inputs : 64
+-- Loss : 0.3458857238292694
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 382
+-- Inputs : 64
+-- Loss : 0.2936132252216339
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 383
+-- Inputs : 64
+-- Loss : 0.304164320230484
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 384
+-- Inputs : 64
+-- Loss : 0.29716986417770386
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 385
+-- Inputs : 64
+-- Loss : 0.26195597648620605
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 386
+-- Inputs : 64
+-- Loss : 0.2900882065296173
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 387
+-- Inputs : 64
+-- Loss : 0.30307939648628235
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 388
+-- Inputs : 64
+-- Loss : 0.31926965713500977
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 389
+-- Inputs : 64
+-- Loss : 0.3350333869457245
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 390
+-- Inputs : 64
+-- Loss : 0.31159892678260803
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 391
+-- Inputs : 64
+-- Loss : 0.2909816801548004
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 392
+-- Inputs : 64
+-- Loss : 0.30671271681785583
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 393
+-- Inputs : 64
+-- Loss : 0.25918048620224
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 394
+-- Inputs : 64
+-- Loss : 0.300128698348999
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 68.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 395
+-- Inputs : 64
+-- Loss : 0.2887890338897705
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 66.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 396
+-- Inputs : 64
+-- Loss : 0.34148263931274414
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 397
+-- Inputs : 64
+-- Loss : 0.35772037506103516
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 398
+-- Inputs : 64
+-- Loss : 0.3063887655735016
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 399
+-- Inputs : 64
+-- Loss : 0.24072538316249847
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 400
+-- Inputs : 64
+-- Loss : 0.30201494693756104
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 401
+-- Inputs : 64
+-- Loss : 0.2627466022968292
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 402
+-- Inputs : 64
+-- Loss : 0.26392513513565063
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 403
+-- Inputs : 64
+-- Loss : 0.409375935792923
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 404
+-- Inputs : 64
+-- Loss : 0.3291643261909485
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 405
+-- Inputs : 64
+-- Loss : 0.282941073179245
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 34.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 406
+-- Inputs : 64
+-- Loss : 0.31819307804107666
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 407
+-- Inputs : 64
+-- Loss : 0.38306668400764465
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 30.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 408
+-- Inputs : 64
+-- Loss : 0.31262704730033875
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 64.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 409
+-- Inputs : 64
+-- Loss : 0.4061647951602936
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 70.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 410
+-- Inputs : 64
+-- Loss : 0.3058147430419922
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 411
+-- Inputs : 64
+-- Loss : 0.2637193500995636
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 412
+-- Inputs : 64
+-- Loss : 0.22482287883758545
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 413
+-- Inputs : 64
+-- Loss : 0.27569305896759033
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 414
+-- Inputs : 64
+-- Loss : 0.3336819112300873
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 415
+-- Inputs : 64
+-- Loss : 0.3336579203605652
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 416
+-- Inputs : 64
+-- Loss : 0.2961025834083557
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 417
+-- Inputs : 64
+-- Loss : 0.3480818271636963
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 418
+-- Inputs : 64
+-- Loss : 0.327310711145401
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 419
+-- Inputs : 64
+-- Loss : 0.3598659634590149
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 420
+-- Inputs : 64
+-- Loss : 0.2045423686504364
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 421
+-- Inputs : 64
+-- Loss : 0.2692951560020447
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 422
+-- Inputs : 64
+-- Loss : 0.3140712380409241
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 423
+-- Inputs : 64
+-- Loss : 0.3625374734401703
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 424
+-- Inputs : 64
+-- Loss : 0.25014522671699524
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 425
+-- Inputs : 64
+-- Loss : 0.2685054838657379
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 426
+-- Inputs : 64
+-- Loss : 0.284701943397522
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 34.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 427
+-- Inputs : 64
+-- Loss : 0.4263073205947876
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 428
+-- Inputs : 64
+-- Loss : 0.2880268394947052
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 32.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 429
+-- Inputs : 64
+-- Loss : 0.2951004207134247
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 430
+-- Inputs : 64
+-- Loss : 0.40057387948036194
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 34.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 431
+-- Inputs : 64
+-- Loss : 0.2901325225830078
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 432
+-- Inputs : 64
+-- Loss : 0.2523793876171112
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 433
+-- Inputs : 64
+-- Loss : 0.39392444491386414
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 434
+-- Inputs : 64
+-- Loss : 0.35292407870292664
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 435
+-- Inputs : 64
+-- Loss : 0.405712366104126
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 436
+-- Inputs : 64
+-- Loss : 0.3344312310218811
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 437
+-- Inputs : 64
+-- Loss : 0.41175422072410583
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 438
+-- Inputs : 64
+-- Loss : 0.3980847895145416
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 439
+-- Inputs : 64
+-- Loss : 0.3384239673614502
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 440
+-- Inputs : 64
+-- Loss : 0.31002193689346313
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 441
+-- Inputs : 64
+-- Loss : 0.25409841537475586
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 442
+-- Inputs : 64
+-- Loss : 0.32845547795295715
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 443
+-- Inputs : 64
+-- Loss : 0.3446591794490814
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 444
+-- Inputs : 64
+-- Loss : 0.3302813470363617
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 445
+-- Inputs : 64
+-- Loss : 0.25665223598480225
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 446
+-- Inputs : 64
+-- Loss : 0.2554892897605896
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 447
+-- Inputs : 64
+-- Loss : 0.29499390721321106
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 448
+-- Inputs : 64
+-- Loss : 0.30367523431777954
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 449
+-- Inputs : 64
+-- Loss : 0.38298749923706055
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 450
+-- Inputs : 64
+-- Loss : 0.3496111035346985
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 451
+-- Inputs : 64
+-- Loss : 0.30778706073760986
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 452
+-- Inputs : 64
+-- Loss : 0.19065767526626587
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 453
+-- Inputs : 64
+-- Loss : 0.3478568196296692
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 454
+-- Inputs : 64
+-- Loss : 0.2840348184108734
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 36.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 455
+-- Inputs : 64
+-- Loss : 0.3588827848434448
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 456
+-- Inputs : 64
+-- Loss : 0.28887373208999634
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 457
+-- Inputs : 64
+-- Loss : 0.3259795010089874
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 458
+-- Inputs : 64
+-- Loss : 0.25382497906684875
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 459
+-- Inputs : 64
+-- Loss : 0.3224364221096039
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 460
+-- Inputs : 64
+-- Loss : 0.26438629627227783
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 461
+-- Inputs : 64
+-- Loss : 0.18963275849819183
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 462
+-- Inputs : 64
+-- Loss : 0.31223440170288086
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 463
+-- Inputs : 64
+-- Loss : 0.23934900760650635
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 464
+-- Inputs : 64
+-- Loss : 0.38946083188056946
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 30.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 465
+-- Inputs : 64
+-- Loss : 0.4053540825843811
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 26.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 466
+-- Inputs : 64
+-- Loss : 0.41947147250175476
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 467
+-- Inputs : 64
+-- Loss : 0.39138010144233704
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 468
+-- Inputs : 64
+-- Loss : 0.27406811714172363
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 36.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 469
+-- Inputs : 64
+-- Loss : 0.3160235583782196
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 470
+-- Inputs : 64
+-- Loss : 0.329746276140213
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 471
+-- Inputs : 64
+-- Loss : 0.31489360332489014
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 472
+-- Inputs : 64
+-- Loss : 0.4146108329296112
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 473
+-- Inputs : 64
+-- Loss : 0.3621490001678467
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 474
+-- Inputs : 64
+-- Loss : 0.25570860505104065
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 475
+-- Inputs : 64
+-- Loss : 0.33521735668182373
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 476
+-- Inputs : 64
+-- Loss : 0.29625317454338074
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 477
+-- Inputs : 64
+-- Loss : 0.2935476005077362
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 478
+-- Inputs : 64
+-- Loss : 0.3730540871620178
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 479
+-- Inputs : 64
+-- Loss : 0.4389559030532837
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 480
+-- Inputs : 64
+-- Loss : 0.37398940324783325
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 42.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 481
+-- Inputs : 64
+-- Loss : 0.3383316099643707
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 52.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 482
+-- Inputs : 64
+-- Loss : 0.3072332739830017
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 483
+-- Inputs : 64
+-- Loss : 0.3037579655647278
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 484
+-- Inputs : 64
+-- Loss : 0.34947633743286133
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 46.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 485
+-- Inputs : 64
+-- Loss : 0.32417720556259155
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 486
+-- Inputs : 64
+-- Loss : 0.2367621660232544
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 487
+-- Inputs : 64
+-- Loss : 0.23737724125385284
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 28.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 488
+-- Inputs : 64
+-- Loss : 0.365081250667572
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 489
+-- Inputs : 64
+-- Loss : 0.2953716516494751
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 34.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 490
+-- Inputs : 64
+-- Loss : 0.26063063740730286
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 491
+-- Inputs : 64
+-- Loss : 0.23779389262199402
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 54.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 492
+-- Inputs : 64
+-- Loss : 0.2709500789642334
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 38.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 493
+-- Inputs : 64
+-- Loss : 0.24706216156482697
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 56.0% 9 way one-shot learning accuracy
+ -- Best so far 82.0
+Epoch : 494
+-- Inputs : 64
+-- Loss : 0.3092522919178009
+---- Evaluating model on one-shot tasks ...
+CCCC      Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/rmn/sit/one-shot/faces1.py", line 126, in <module>
+    percent_correct = test_oneshot(samples,siamese_net,N,test_trials)
+  File "/home/rmn/sit/one-shot/faces1.py", line 105, in test_oneshot
+    probs = model.predict(inputs)
+  File "/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/keras/engine/training.py", line 1835, in predict
+    verbose=verbose, steps=steps)
+  File "/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/keras/engine/training.py", line 1330, in _predict_loop
+    batch_outs = f(ins_batch)
+  File "/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py", line 2478, in __call__
+    **self.session_kwargs)
+  File "/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 905, in run
+    run_metadata_ptr)
+  File "/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1137, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1355, in _do_run
+    options, run_metadata)
+  File "/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1361, in _do_call
+    return fn(*args)
+  File "/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1340, in _run_fn
+    target_list, status, run_metadata)
+KeyboardInterrupt
+>>> 

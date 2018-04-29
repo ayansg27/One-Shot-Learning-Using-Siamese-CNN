@@ -1,0 +1,2777 @@
+Python 3.6.4 |Anaconda, Inc.| (default, Mar 13 2018, 01:15:57) 
+[GCC 7.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> <_ast.Expr object at 0x7f6ab565ed30>
+python.el: native completion setup loaded
+>>> import random
+...: import h5py
+...: import numpy as np
+...: from PIL import Image
+...: import PIL.ImageOps
+...: import matplotlib.pyplot as plt
+...: from sklearn.utils import shuffle
+...: from keras.models import Sequential, Model, load_model
+...: from keras.layers import Dense, Dropout, Input, Lambda, Conv2D, Flatten, MaxPooling2D, merge
+...: from keras.optimizers import Adam, RMSprop, SGD
+...: ...
+...: def plot_oneshot_task(target,support):
+...:     fig,(ax1,ax2) = plt.subplots(2)
+...:     ax1.matshow(target[0].reshape(112,92),cmap='gray')
+...:     img = concat_images(support)
+...:     ax1.get_yaxis().set_visible(False)
+...:     ax1.get_xaxis().set_visible(False)
+...:     ax2.matshow(img,cmap='gray')
+...:     plt.xticks([])
+...:     plt.yticks([])
+...:     plt.show()
+/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+Loading person ID: s27
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s17
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s7
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s28
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s23
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s24
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s9
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s15
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s18
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s10
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s12
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s4
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s25
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s22
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s3
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s30
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s14
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s5
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s13
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s6
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s1
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s21
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s19
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s20
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s26
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s11
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s16
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s2
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s29
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s8
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s38
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s40
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s34
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s39
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s35
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s31
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s37
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s36
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s32
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+Loading person ID: s33
+  -- Reading image 10.png
+  -- Reading image 1.png
+  -- Reading image 5.png
+  -- Reading image 9.png
+  -- Reading image 8.png
+  -- Reading image 6.png
+  -- Reading image 2.png
+  -- Reading image 7.png
+  -- Reading image 3.png
+  -- Reading image 4.png
+__main__:84: UserWarning: The `merge` function is deprecated and will be removed after 08/2017. Use instead layers from `keras.layers.merge`, e.g. `add`, `concatenate`, etc.
+/home/rmn/.conda/envs/tensorflow/lib/python3.6/site-packages/keras/legacy/layers.py:465: UserWarning: The `Merge` layer is deprecated and will be removed after 08/2017. Use instead layers from `keras.layers.merge`, e.g. `add`, `concatenate`, etc.
+  name=name)
+__main__:87: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+Epoch : 0
+-- Inputs : 128
+2018-04-27 14:01:29.563154: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+-- Loss : 1.8221938610076904
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 43.0% 9 way one-shot learning accuracy
+-- Best so far 43.0
+Epoch : 1
+-- Inputs : 128
+-- Loss : 1.7510857582092285
+-- Best so far 43.0
+Epoch : 2
+-- Inputs : 128
+-- Loss : 1.6497610807418823
+-- Best so far 43.0
+Epoch : 3
+-- Inputs : 128
+-- Loss : 1.562247633934021
+-- Best so far 43.0
+Epoch : 4
+-- Inputs : 128
+-- Loss : 1.5252734422683716
+-- Best so far 43.0
+Epoch : 5
+-- Inputs : 128
+-- Loss : 1.4780478477478027
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 6
+-- Inputs : 128
+-- Loss : 1.4494282007217407
+-- Best so far 58.0
+Epoch : 7
+-- Inputs : 128
+-- Loss : 1.4151620864868164
+-- Best so far 58.0
+Epoch : 8
+-- Inputs : 128
+-- Loss : 1.3175091743469238
+-- Best so far 58.0
+Epoch : 9
+-- Inputs : 128
+-- Loss : 1.3197296857833862
+-- Best so far 58.0
+Epoch : 10
+-- Inputs : 128
+-- Loss : 1.2890578508377075
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 51.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 11
+-- Inputs : 128
+-- Loss : 1.2375344038009644
+-- Best so far 58.0
+Epoch : 12
+-- Inputs : 128
+-- Loss : 1.2139946222305298
+-- Best so far 58.0
+Epoch : 13
+-- Inputs : 128
+-- Loss : 1.178565502166748
+-- Best so far 58.0
+Epoch : 14
+-- Inputs : 128
+-- Loss : 1.182773232460022
+-- Best so far 58.0
+Epoch : 15
+-- Inputs : 128
+-- Loss : 1.146597981452942
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 35.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 16
+-- Inputs : 128
+-- Loss : 1.131168007850647
+-- Best so far 58.0
+Epoch : 17
+-- Inputs : 128
+-- Loss : 1.1079776287078857
+-- Best so far 58.0
+Epoch : 18
+-- Inputs : 128
+-- Loss : 1.0779262781143188
+-- Best so far 58.0
+Epoch : 19
+-- Inputs : 128
+-- Loss : 1.0603808164596558
+-- Best so far 58.0
+Epoch : 20
+-- Inputs : 128
+-- Loss : 1.055556058883667
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 37.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 21
+-- Inputs : 128
+-- Loss : 1.0073609352111816
+-- Best so far 58.0
+Epoch : 22
+-- Inputs : 128
+-- Loss : 0.9982967376708984
+-- Best so far 58.0
+Epoch : 23
+-- Inputs : 128
+-- Loss : 0.9754173159599304
+-- Best so far 58.0
+Epoch : 24
+-- Inputs : 128
+-- Loss : 0.9567855596542358
+-- Best so far 58.0
+Epoch : 25
+-- Inputs : 128
+-- Loss : 0.9457034468650818
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 29.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 26
+-- Inputs : 128
+-- Loss : 0.9342291951179504
+-- Best so far 58.0
+Epoch : 27
+-- Inputs : 128
+-- Loss : 0.9238069653511047
+-- Best so far 58.0
+Epoch : 28
+-- Inputs : 128
+-- Loss : 0.8993532061576843
+-- Best so far 58.0
+Epoch : 29
+-- Inputs : 128
+-- Loss : 0.8978603482246399
+-- Best so far 58.0
+Epoch : 30
+-- Inputs : 128
+-- Loss : 0.8849250078201294
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 29.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 31
+-- Inputs : 128
+-- Loss : 0.8632231950759888
+-- Best so far 58.0
+Epoch : 32
+-- Inputs : 128
+-- Loss : 0.8563913106918335
+-- Best so far 58.0
+Epoch : 33
+-- Inputs : 128
+-- Loss : 0.808459997177124
+-- Best so far 58.0
+Epoch : 34
+-- Inputs : 128
+-- Loss : 0.8422767519950867
+-- Best so far 58.0
+Epoch : 35
+-- Inputs : 128
+-- Loss : 0.8206833600997925
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 30.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 36
+-- Inputs : 128
+-- Loss : 0.8212131261825562
+-- Best so far 58.0
+Epoch : 37
+-- Inputs : 128
+-- Loss : 0.8112392425537109
+-- Best so far 58.0
+Epoch : 38
+-- Inputs : 128
+-- Loss : 0.8131733536720276
+-- Best so far 58.0
+Epoch : 39
+-- Inputs : 128
+-- Loss : 0.8251509666442871
+-- Best so far 58.0
+Epoch : 40
+-- Inputs : 128
+-- Loss : 0.806111216545105
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 36.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 41
+-- Inputs : 128
+-- Loss : 0.8098464012145996
+-- Best so far 58.0
+Epoch : 42
+-- Inputs : 128
+-- Loss : 0.7997010350227356
+-- Best so far 58.0
+Epoch : 43
+-- Inputs : 128
+-- Loss : 0.7608057856559753
+-- Best so far 58.0
+Epoch : 44
+-- Inputs : 128
+-- Loss : 0.7947474122047424
+-- Best so far 58.0
+Epoch : 45
+-- Inputs : 128
+-- Loss : 0.813947856426239
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 43.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 46
+-- Inputs : 128
+-- Loss : 0.797842800617218
+-- Best so far 58.0
+Epoch : 47
+-- Inputs : 128
+-- Loss : 0.8031265735626221
+-- Best so far 58.0
+Epoch : 48
+-- Inputs : 128
+-- Loss : 0.7911423444747925
+-- Best so far 58.0
+Epoch : 49
+-- Inputs : 128
+-- Loss : 0.7837675213813782
+-- Best so far 58.0
+Epoch : 50
+-- Inputs : 128
+-- Loss : 0.796789824962616
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 28.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 51
+-- Inputs : 128
+-- Loss : 0.8015071749687195
+-- Best so far 58.0
+Epoch : 52
+-- Inputs : 128
+-- Loss : 0.8229787945747375
+-- Best so far 58.0
+Epoch : 53
+-- Inputs : 128
+-- Loss : 0.8079354763031006
+-- Best so far 58.0
+Epoch : 54
+-- Inputs : 128
+-- Loss : 0.8110113143920898
+-- Best so far 58.0
+Epoch : 55
+-- Inputs : 128
+-- Loss : 0.802105188369751
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 22.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 56
+-- Inputs : 128
+-- Loss : 0.8092086911201477
+-- Best so far 58.0
+Epoch : 57
+-- Inputs : 128
+-- Loss : 0.8311065435409546
+-- Best so far 58.0
+Epoch : 58
+-- Inputs : 128
+-- Loss : 0.8145447373390198
+-- Best so far 58.0
+Epoch : 59
+-- Inputs : 128
+-- Loss : 0.8130434155464172
+-- Best so far 58.0
+Epoch : 60
+-- Inputs : 128
+-- Loss : 0.8264835476875305
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 24.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 61
+-- Inputs : 128
+-- Loss : 0.8249788880348206
+-- Best so far 58.0
+Epoch : 62
+-- Inputs : 128
+-- Loss : 0.8256884217262268
+-- Best so far 58.0
+Epoch : 63
+-- Inputs : 128
+-- Loss : 0.8170986175537109
+-- Best so far 58.0
+Epoch : 64
+-- Inputs : 128
+-- Loss : 0.8194079399108887
+-- Best so far 58.0
+Epoch : 65
+-- Inputs : 128
+-- Loss : 0.7837015390396118
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 36.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 66
+-- Inputs : 128
+-- Loss : 0.7889677882194519
+-- Best so far 58.0
+Epoch : 67
+-- Inputs : 128
+-- Loss : 0.7501036524772644
+-- Best so far 58.0
+Epoch : 68
+-- Inputs : 128
+-- Loss : 0.7496644258499146
+-- Best so far 58.0
+Epoch : 69
+-- Inputs : 128
+-- Loss : 0.821358323097229
+-- Best so far 58.0
+Epoch : 70
+-- Inputs : 128
+-- Loss : 0.8364893794059753
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 11.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 71
+-- Inputs : 128
+-- Loss : 0.8433561325073242
+-- Best so far 58.0
+Epoch : 72
+-- Inputs : 128
+-- Loss : 0.842460572719574
+-- Best so far 58.0
+Epoch : 73
+-- Inputs : 128
+-- Loss : 0.8400435447692871
+-- Best so far 58.0
+Epoch : 74
+-- Inputs : 128
+-- Loss : 0.8434744477272034
+-- Best so far 58.0
+Epoch : 75
+-- Inputs : 128
+-- Loss : 0.8419656753540039
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 10.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 76
+-- Inputs : 128
+-- Loss : 0.8378749489784241
+-- Best so far 58.0
+Epoch : 77
+-- Inputs : 128
+-- Loss : 0.8393968939781189
+-- Best so far 58.0
+Epoch : 78
+-- Inputs : 128
+-- Loss : 0.8362975716590881
+-- Best so far 58.0
+Epoch : 79
+-- Inputs : 128
+-- Loss : 0.8354668617248535
+-- Best so far 58.0
+Epoch : 80
+-- Inputs : 128
+-- Loss : 0.8369667530059814
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 50.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 81
+-- Inputs : 128
+-- Loss : 0.8350867629051208
+-- Best so far 58.0
+Epoch : 82
+-- Inputs : 128
+-- Loss : 0.8328685164451599
+-- Best so far 58.0
+Epoch : 83
+-- Inputs : 128
+-- Loss : 0.8332090973854065
+-- Best so far 58.0
+Epoch : 84
+-- Inputs : 128
+-- Loss : 0.8275821208953857
+-- Best so far 58.0
+Epoch : 85
+-- Inputs : 128
+-- Loss : 0.8313283324241638
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 19.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 86
+-- Inputs : 128
+-- Loss : 0.8307815790176392
+-- Best so far 58.0
+Epoch : 87
+-- Inputs : 128
+-- Loss : 0.8292778730392456
+-- Best so far 58.0
+Epoch : 88
+-- Inputs : 128
+-- Loss : 0.8285968899726868
+-- Best so far 58.0
+Epoch : 89
+-- Inputs : 128
+-- Loss : 0.8271768689155579
+-- Best so far 58.0
+Epoch : 90
+-- Inputs : 128
+-- Loss : 0.8259169459342957
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 41.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 91
+-- Inputs : 128
+-- Loss : 0.8251652717590332
+-- Best so far 58.0
+Epoch : 92
+-- Inputs : 128
+-- Loss : 0.8242682814598083
+-- Best so far 58.0
+Epoch : 93
+-- Inputs : 128
+-- Loss : 0.8228092789649963
+-- Best so far 58.0
+Epoch : 94
+-- Inputs : 128
+-- Loss : 0.8222513794898987
+-- Best so far 58.0
+Epoch : 95
+-- Inputs : 128
+-- Loss : 0.8209824562072754
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 22.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 96
+-- Inputs : 128
+-- Loss : 0.8204765915870667
+-- Best so far 58.0
+Epoch : 97
+-- Inputs : 128
+-- Loss : 0.8198320865631104
+-- Best so far 58.0
+Epoch : 98
+-- Inputs : 128
+-- Loss : 0.8185316324234009
+-- Best so far 58.0
+Epoch : 99
+-- Inputs : 128
+-- Loss : 0.8179354071617126
+-- Best so far 58.0
+Epoch : 100
+-- Inputs : 128
+-- Loss : 0.8165092468261719
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 8.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 101
+-- Inputs : 128
+-- Loss : 0.8168212175369263
+-- Best so far 58.0
+Epoch : 102
+-- Inputs : 128
+-- Loss : 0.8150418996810913
+-- Best so far 58.0
+Epoch : 103
+-- Inputs : 128
+-- Loss : 0.8139722347259521
+-- Best so far 58.0
+Epoch : 104
+-- Inputs : 128
+-- Loss : 0.813392162322998
+-- Best so far 58.0
+Epoch : 105
+-- Inputs : 128
+-- Loss : 0.8130956292152405
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 3.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 106
+-- Inputs : 128
+-- Loss : 0.8119272589683533
+-- Best so far 58.0
+Epoch : 107
+-- Inputs : 128
+-- Loss : 0.810721218585968
+-- Best so far 58.0
+Epoch : 108
+-- Inputs : 128
+-- Loss : 0.8096242547035217
+-- Best so far 58.0
+Epoch : 109
+-- Inputs : 128
+-- Loss : 0.8099687099456787
+-- Best so far 58.0
+Epoch : 110
+-- Inputs : 128
+-- Loss : 0.8086039423942566
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 33.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 111
+-- Inputs : 128
+-- Loss : 0.8079500794410706
+-- Best so far 58.0
+Epoch : 112
+-- Inputs : 128
+-- Loss : 0.8072230815887451
+-- Best so far 58.0
+Epoch : 113
+-- Inputs : 128
+-- Loss : 0.8063545823097229
+-- Best so far 58.0
+Epoch : 114
+-- Inputs : 128
+-- Loss : 0.8055672645568848
+-- Best so far 58.0
+Epoch : 115
+-- Inputs : 128
+-- Loss : 0.8052372336387634
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 5.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 116
+-- Inputs : 128
+-- Loss : 0.8043947219848633
+-- Best so far 58.0
+Epoch : 117
+-- Inputs : 128
+-- Loss : 0.8035672903060913
+-- Best so far 58.0
+Epoch : 118
+-- Inputs : 128
+-- Loss : 0.8031529784202576
+-- Best so far 58.0
+Epoch : 119
+-- Inputs : 128
+-- Loss : 0.8024265766143799
+-- Best so far 58.0
+Epoch : 120
+-- Inputs : 128
+-- Loss : 0.8015961050987244
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 34.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 121
+-- Inputs : 128
+-- Loss : 0.800758957862854
+-- Best so far 58.0
+Epoch : 122
+-- Inputs : 128
+-- Loss : 0.8006032705307007
+-- Best so far 58.0
+Epoch : 123
+-- Inputs : 128
+-- Loss : 0.7997891902923584
+-- Best so far 58.0
+Epoch : 124
+-- Inputs : 128
+-- Loss : 0.7997435331344604
+-- Best so far 58.0
+Epoch : 125
+-- Inputs : 128
+-- Loss : 0.7991673946380615
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 21.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 126
+-- Inputs : 128
+-- Loss : 0.7935729622840881
+-- Best so far 58.0
+Epoch : 127
+-- Inputs : 128
+-- Loss : 0.7971602082252502
+-- Best so far 58.0
+Epoch : 128
+-- Inputs : 128
+-- Loss : 0.7967321872711182
+-- Best so far 58.0
+Epoch : 129
+-- Inputs : 128
+-- Loss : 0.7961183786392212
+-- Best so far 58.0
+Epoch : 130
+-- Inputs : 128
+-- Loss : 0.7958633899688721
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 28.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 131
+-- Inputs : 128
+-- Loss : 0.7943800687789917
+-- Best so far 58.0
+Epoch : 132
+-- Inputs : 128
+-- Loss : 0.7935330271720886
+-- Best so far 58.0
+Epoch : 133
+-- Inputs : 128
+-- Loss : 0.7939484715461731
+-- Best so far 58.0
+Epoch : 134
+-- Inputs : 128
+-- Loss : 0.7934067249298096
+-- Best so far 58.0
+Epoch : 135
+-- Inputs : 128
+-- Loss : 0.7928685545921326
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 44.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 136
+-- Inputs : 128
+-- Loss : 0.7912893891334534
+-- Best so far 58.0
+Epoch : 137
+-- Inputs : 128
+-- Loss : 0.7921064496040344
+-- Best so far 58.0
+Epoch : 138
+-- Inputs : 128
+-- Loss : 0.7915332317352295
+-- Best so far 58.0
+Epoch : 139
+-- Inputs : 128
+-- Loss : 0.7907839417457581
+-- Best so far 58.0
+Epoch : 140
+-- Inputs : 128
+-- Loss : 0.7902758121490479
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 34.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 141
+-- Inputs : 128
+-- Loss : 0.7885903120040894
+-- Best so far 58.0
+Epoch : 142
+-- Inputs : 128
+-- Loss : 0.789275586605072
+-- Best so far 58.0
+Epoch : 143
+-- Inputs : 128
+-- Loss : 0.7887764573097229
+-- Best so far 58.0
+Epoch : 144
+-- Inputs : 128
+-- Loss : 0.7882867455482483
+-- Best so far 58.0
+Epoch : 145
+-- Inputs : 128
+-- Loss : 0.7879568934440613
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 43.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 146
+-- Inputs : 128
+-- Loss : 0.7870151400566101
+-- Best so far 58.0
+Epoch : 147
+-- Inputs : 128
+-- Loss : 0.7868178486824036
+-- Best so far 58.0
+Epoch : 148
+-- Inputs : 128
+-- Loss : 0.7854727506637573
+-- Best so far 58.0
+Epoch : 149
+-- Inputs : 128
+-- Loss : 0.7858805656433105
+-- Best so far 58.0
+Epoch : 150
+-- Inputs : 128
+-- Loss : 0.7851202487945557
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 20.0% 9 way one-shot learning accuracy
+-- Best so far 58.0
+Epoch : 151
+-- Inputs : 128
+-- Loss : 0.7848390340805054
+-- Best so far 58.0
+Epoch : 152
+-- Inputs : 128
+-- Loss : 0.7821220755577087
+-- Best so far 58.0
+Epoch : 153
+-- Inputs : 128
+-- Loss : 0.7821031212806702
+-- Best so far 58.0
+Epoch : 154
+-- Inputs : 128
+-- Loss : 0.7823159694671631
+-- Best so far 58.0
+Epoch : 155
+-- Inputs : 128
+-- Loss : 0.7821369171142578
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 79.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 156
+-- Inputs : 128
+-- Loss : 0.7817609906196594
+-- Best so far 79.0
+Epoch : 157
+-- Inputs : 128
+-- Loss : 0.7754070162773132
+-- Best so far 79.0
+Epoch : 158
+-- Inputs : 128
+-- Loss : 0.7737080454826355
+-- Best so far 79.0
+Epoch : 159
+-- Inputs : 128
+-- Loss : 0.7781434655189514
+-- Best so far 79.0
+Epoch : 160
+-- Inputs : 128
+-- Loss : 0.7773317098617554
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 59.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 161
+-- Inputs : 128
+-- Loss : 0.777354896068573
+-- Best so far 79.0
+Epoch : 162
+-- Inputs : 128
+-- Loss : 0.7730443477630615
+-- Best so far 79.0
+Epoch : 163
+-- Inputs : 128
+-- Loss : 0.7727739810943604
+-- Best so far 79.0
+Epoch : 164
+-- Inputs : 128
+-- Loss : 0.7798388004302979
+-- Best so far 79.0
+Epoch : 165
+-- Inputs : 128
+-- Loss : 0.7781464457511902
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 166
+-- Inputs : 128
+-- Loss : 0.7721518278121948
+-- Best so far 79.0
+Epoch : 167
+-- Inputs : 128
+-- Loss : 0.7696948051452637
+-- Best so far 79.0
+Epoch : 168
+-- Inputs : 128
+-- Loss : 0.7737440466880798
+-- Best so far 79.0
+Epoch : 169
+-- Inputs : 128
+-- Loss : 0.7745543718338013
+-- Best so far 79.0
+Epoch : 170
+-- Inputs : 128
+-- Loss : 0.7660008668899536
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 48.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 171
+-- Inputs : 128
+-- Loss : 0.7663509249687195
+-- Best so far 79.0
+Epoch : 172
+-- Inputs : 128
+-- Loss : 0.7753745913505554
+-- Best so far 79.0
+Epoch : 173
+-- Inputs : 128
+-- Loss : 0.774747908115387
+-- Best so far 79.0
+Epoch : 174
+-- Inputs : 128
+-- Loss : 0.7706477046012878
+-- Best so far 79.0
+Epoch : 175
+-- Inputs : 128
+-- Loss : 0.7726532220840454
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 27.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 176
+-- Inputs : 128
+-- Loss : 0.7770875096321106
+-- Best so far 79.0
+Epoch : 177
+-- Inputs : 128
+-- Loss : 0.7766833305358887
+-- Best so far 79.0
+Epoch : 178
+-- Inputs : 128
+-- Loss : 0.774084210395813
+-- Best so far 79.0
+Epoch : 179
+-- Inputs : 128
+-- Loss : 0.7744134068489075
+-- Best so far 79.0
+Epoch : 180
+-- Inputs : 128
+-- Loss : 0.7764480710029602
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 47.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 181
+-- Inputs : 128
+-- Loss : 0.7721858620643616
+-- Best so far 79.0
+Epoch : 182
+-- Inputs : 128
+-- Loss : 0.7732821702957153
+-- Best so far 79.0
+Epoch : 183
+-- Inputs : 128
+-- Loss : 0.7729431986808777
+-- Best so far 79.0
+Epoch : 184
+-- Inputs : 128
+-- Loss : 0.7727735638618469
+-- Best so far 79.0
+Epoch : 185
+-- Inputs : 128
+-- Loss : 0.7693986892700195
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 27.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 186
+-- Inputs : 128
+-- Loss : 0.760010838508606
+-- Best so far 79.0
+Epoch : 187
+-- Inputs : 128
+-- Loss : 0.7628558278083801
+-- Best so far 79.0
+Epoch : 188
+-- Inputs : 128
+-- Loss : 0.764326810836792
+-- Best so far 79.0
+Epoch : 189
+-- Inputs : 128
+-- Loss : 0.7623888850212097
+-- Best so far 79.0
+Epoch : 190
+-- Inputs : 128
+-- Loss : 0.7665393352508545
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 30.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 191
+-- Inputs : 128
+-- Loss : 0.7604140639305115
+-- Best so far 79.0
+Epoch : 192
+-- Inputs : 128
+-- Loss : 0.7664532661437988
+-- Best so far 79.0
+Epoch : 193
+-- Inputs : 128
+-- Loss : 0.769843578338623
+-- Best so far 79.0
+Epoch : 194
+-- Inputs : 128
+-- Loss : 0.7666895985603333
+-- Best so far 79.0
+Epoch : 195
+-- Inputs : 128
+-- Loss : 0.7660443782806396
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 34.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 196
+-- Inputs : 128
+-- Loss : 0.7588401436805725
+-- Best so far 79.0
+Epoch : 197
+-- Inputs : 128
+-- Loss : 0.7607447504997253
+-- Best so far 79.0
+Epoch : 198
+-- Inputs : 128
+-- Loss : 0.7641583681106567
+-- Best so far 79.0
+Epoch : 199
+-- Inputs : 128
+-- Loss : 0.7623212337493896
+-- Best so far 79.0
+Epoch : 200
+-- Inputs : 128
+-- Loss : 0.7648115754127502
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 9.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 201
+-- Inputs : 128
+-- Loss : 0.7669466733932495
+-- Best so far 79.0
+Epoch : 202
+-- Inputs : 128
+-- Loss : 0.7668013572692871
+-- Best so far 79.0
+Epoch : 203
+-- Inputs : 128
+-- Loss : 0.7675249576568604
+-- Best so far 79.0
+Epoch : 204
+-- Inputs : 128
+-- Loss : 0.7691052556037903
+-- Best so far 79.0
+Epoch : 205
+-- Inputs : 128
+-- Loss : 0.7713268399238586
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 19.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 206
+-- Inputs : 128
+-- Loss : 0.7700937986373901
+-- Best so far 79.0
+Epoch : 207
+-- Inputs : 128
+-- Loss : 0.7685243487358093
+-- Best so far 79.0
+Epoch : 208
+-- Inputs : 128
+-- Loss : 0.7670618295669556
+-- Best so far 79.0
+Epoch : 209
+-- Inputs : 128
+-- Loss : 0.7674512267112732
+-- Best so far 79.0
+Epoch : 210
+-- Inputs : 128
+-- Loss : 0.767122745513916
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 25.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 211
+-- Inputs : 128
+-- Loss : 0.7647344470024109
+-- Best so far 79.0
+Epoch : 212
+-- Inputs : 128
+-- Loss : 0.7690449953079224
+-- Best so far 79.0
+Epoch : 213
+-- Inputs : 128
+-- Loss : 0.7683042883872986
+-- Best so far 79.0
+Epoch : 214
+-- Inputs : 128
+-- Loss : 0.7676376700401306
+-- Best so far 79.0
+Epoch : 215
+-- Inputs : 128
+-- Loss : 0.767288088798523
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 5.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 216
+-- Inputs : 128
+-- Loss : 0.7709499001502991
+-- Best so far 79.0
+Epoch : 217
+-- Inputs : 128
+-- Loss : 0.7692489624023438
+-- Best so far 79.0
+Epoch : 218
+-- Inputs : 128
+-- Loss : 0.7671568989753723
+-- Best so far 79.0
+Epoch : 219
+-- Inputs : 128
+-- Loss : 0.7663719654083252
+-- Best so far 79.0
+Epoch : 220
+-- Inputs : 128
+-- Loss : 0.7672419548034668
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 41.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 221
+-- Inputs : 128
+-- Loss : 0.7654949426651001
+-- Best so far 79.0
+Epoch : 222
+-- Inputs : 128
+-- Loss : 0.7666434645652771
+-- Best so far 79.0
+Epoch : 223
+-- Inputs : 128
+-- Loss : 0.7612825632095337
+-- Best so far 79.0
+Epoch : 224
+-- Inputs : 128
+-- Loss : 0.7587708830833435
+-- Best so far 79.0
+Epoch : 225
+-- Inputs : 128
+-- Loss : 0.766782283782959
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 11.0% 9 way one-shot learning accuracy
+-- Best so far 79.0
+Epoch : 226
+-- Inputs : 128
+-- Loss : 0.7642831206321716
+-- Best so far 79.0
+Epoch : 227
+-- Inputs : 128
+-- Loss : 0.7642266154289246
+-- Best so far 79.0
+Epoch : 228
+-- Inputs : 128
+-- Loss : 0.7654101252555847
+-- Best so far 79.0
+Epoch : 229
+-- Inputs : 128
+-- Loss : 0.7644557952880859
+-- Best so far 79.0
+Epoch : 230
+-- Inputs : 128
+-- Loss : 0.763462245464325
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 92.0% 9 way one-shot learning accuracy
+-- Best so far 92.0
+Epoch : 231
+-- Inputs : 128
+-- Loss : 0.7630388140678406
+-- Best so far 92.0
+Epoch : 232
+-- Inputs : 128
+-- Loss : 0.7643268704414368
+-- Best so far 92.0
+Epoch : 233
+-- Inputs : 128
+-- Loss : 0.7612987160682678
+-- Best so far 92.0
+Epoch : 234
+-- Inputs : 128
+-- Loss : 0.7606499195098877
+-- Best so far 92.0
+Epoch : 235
+-- Inputs : 128
+-- Loss : 0.7636455297470093
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 33.0% 9 way one-shot learning accuracy
+-- Best so far 92.0
+Epoch : 236
+-- Inputs : 128
+-- Loss : 0.7626308798789978
+-- Best so far 92.0
+Epoch : 237
+-- Inputs : 128
+-- Loss : 0.7625791430473328
+-- Best so far 92.0
+Epoch : 238
+-- Inputs : 128
+-- Loss : 0.7622759938240051
+-- Best so far 92.0
+Epoch : 239
+-- Inputs : 128
+-- Loss : 0.7622648477554321
+-- Best so far 92.0
+Epoch : 240
+-- Inputs : 128
+-- Loss : 0.761890172958374
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 62.0% 9 way one-shot learning accuracy
+-- Best so far 92.0
+Epoch : 241
+-- Inputs : 128
+-- Loss : 0.7616339921951294
+-- Best so far 92.0
+Epoch : 242
+-- Inputs : 128
+-- Loss : 0.7608713507652283
+-- Best so far 92.0
+Epoch : 243
+-- Inputs : 128
+-- Loss : 0.761778712272644
+-- Best so far 92.0
+Epoch : 244
+-- Inputs : 128
+-- Loss : 0.7616691589355469
+-- Best so far 92.0
+Epoch : 245
+-- Inputs : 128
+-- Loss : 0.7609790563583374
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 95.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 246
+-- Inputs : 128
+-- Loss : 0.7602257132530212
+-- Best so far 95.0
+Epoch : 247
+-- Inputs : 128
+-- Loss : 0.7604334950447083
+-- Best so far 95.0
+Epoch : 248
+-- Inputs : 128
+-- Loss : 0.7602643370628357
+-- Best so far 95.0
+Epoch : 249
+-- Inputs : 128
+-- Loss : 0.7600917220115662
+-- Best so far 95.0
+Epoch : 250
+-- Inputs : 128
+-- Loss : 0.7596519589424133
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 7.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 251
+-- Inputs : 128
+-- Loss : 0.7591997981071472
+-- Best so far 95.0
+Epoch : 252
+-- Inputs : 128
+-- Loss : 0.7597108483314514
+-- Best so far 95.0
+Epoch : 253
+-- Inputs : 128
+-- Loss : 0.7592010498046875
+-- Best so far 95.0
+Epoch : 254
+-- Inputs : 128
+-- Loss : 0.759177029132843
+-- Best so far 95.0
+Epoch : 255
+-- Inputs : 128
+-- Loss : 0.7600292563438416
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 20.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 256
+-- Inputs : 128
+-- Loss : 0.7594371438026428
+-- Best so far 95.0
+Epoch : 257
+-- Inputs : 128
+-- Loss : 0.7552955746650696
+-- Best so far 95.0
+Epoch : 258
+-- Inputs : 128
+-- Loss : 0.7580306529998779
+-- Best so far 95.0
+Epoch : 259
+-- Inputs : 128
+-- Loss : 0.7583955526351929
+-- Best so far 95.0
+Epoch : 260
+-- Inputs : 128
+-- Loss : 0.757787823677063
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 94.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 261
+-- Inputs : 128
+-- Loss : 0.7575095295906067
+-- Best so far 95.0
+Epoch : 262
+-- Inputs : 128
+-- Loss : 0.7572939395904541
+-- Best so far 95.0
+Epoch : 263
+-- Inputs : 128
+-- Loss : 0.7570719718933105
+-- Best so far 95.0
+Epoch : 264
+-- Inputs : 128
+-- Loss : 0.7567567229270935
+-- Best so far 95.0
+Epoch : 265
+-- Inputs : 128
+-- Loss : 0.7566091418266296
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 92.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 266
+-- Inputs : 128
+-- Loss : 0.7561863660812378
+-- Best so far 95.0
+Epoch : 267
+-- Inputs : 128
+-- Loss : 0.7555824518203735
+-- Best so far 95.0
+Epoch : 268
+-- Inputs : 128
+-- Loss : 0.7566409111022949
+-- Best so far 95.0
+Epoch : 269
+-- Inputs : 128
+-- Loss : 0.7553826570510864
+-- Best so far 95.0
+Epoch : 270
+-- Inputs : 128
+-- Loss : 0.7551209926605225
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 27.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 271
+-- Inputs : 128
+-- Loss : 0.7557351589202881
+-- Best so far 95.0
+Epoch : 272
+-- Inputs : 128
+-- Loss : 0.7547255754470825
+-- Best so far 95.0
+Epoch : 273
+-- Inputs : 128
+-- Loss : 0.7540938258171082
+-- Best so far 95.0
+Epoch : 274
+-- Inputs : 128
+-- Loss : 0.7550556063652039
+-- Best so far 95.0
+Epoch : 275
+-- Inputs : 128
+-- Loss : 0.7549145817756653
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 4.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 276
+-- Inputs : 128
+-- Loss : 0.7546176910400391
+-- Best so far 95.0
+Epoch : 277
+-- Inputs : 128
+-- Loss : 0.754386305809021
+-- Best so far 95.0
+Epoch : 278
+-- Inputs : 128
+-- Loss : 0.7543897032737732
+-- Best so far 95.0
+Epoch : 279
+-- Inputs : 128
+-- Loss : 0.7534716725349426
+-- Best so far 95.0
+Epoch : 280
+-- Inputs : 128
+-- Loss : 0.7542349696159363
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 12.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 281
+-- Inputs : 128
+-- Loss : 0.7541362047195435
+-- Best so far 95.0
+Epoch : 282
+-- Inputs : 128
+-- Loss : 0.7533820271492004
+-- Best so far 95.0
+Epoch : 283
+-- Inputs : 128
+-- Loss : 0.7530258297920227
+-- Best so far 95.0
+Epoch : 284
+-- Inputs : 128
+-- Loss : 0.7531688213348389
+-- Best so far 95.0
+Epoch : 285
+-- Inputs : 128
+-- Loss : 0.752781331539154
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 77.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 286
+-- Inputs : 128
+-- Loss : 0.7515506148338318
+-- Best so far 95.0
+Epoch : 287
+-- Inputs : 128
+-- Loss : 0.752412736415863
+-- Best so far 95.0
+Epoch : 288
+-- Inputs : 128
+-- Loss : 0.7520322799682617
+-- Best so far 95.0
+Epoch : 289
+-- Inputs : 128
+-- Loss : 0.7521602511405945
+-- Best so far 95.0
+Epoch : 290
+-- Inputs : 128
+-- Loss : 0.7527483701705933
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 53.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 291
+-- Inputs : 128
+-- Loss : 0.7515355348587036
+-- Best so far 95.0
+Epoch : 292
+-- Inputs : 128
+-- Loss : 0.7516117691993713
+-- Best so far 95.0
+Epoch : 293
+-- Inputs : 128
+-- Loss : 0.7514278292655945
+-- Best so far 95.0
+Epoch : 294
+-- Inputs : 128
+-- Loss : 0.7517247200012207
+-- Best so far 95.0
+Epoch : 295
+-- Inputs : 128
+-- Loss : 0.7511611580848694
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 88.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 296
+-- Inputs : 128
+-- Loss : 0.7508193850517273
+-- Best so far 95.0
+Epoch : 297
+-- Inputs : 128
+-- Loss : 0.7505385875701904
+-- Best so far 95.0
+Epoch : 298
+-- Inputs : 128
+-- Loss : 0.7495673298835754
+-- Best so far 95.0
+Epoch : 299
+-- Inputs : 128
+-- Loss : 0.7508984804153442
+-- Best so far 95.0
+Epoch : 300
+-- Inputs : 128
+-- Loss : 0.7505027651786804
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 23.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 301
+-- Inputs : 128
+-- Loss : 0.7505790591239929
+-- Best so far 95.0
+Epoch : 302
+-- Inputs : 128
+-- Loss : 0.7500333786010742
+-- Best so far 95.0
+Epoch : 303
+-- Inputs : 128
+-- Loss : 0.7496568560600281
+-- Best so far 95.0
+Epoch : 304
+-- Inputs : 128
+-- Loss : 0.7495946288108826
+-- Best so far 95.0
+Epoch : 305
+-- Inputs : 128
+-- Loss : 0.7497236132621765
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 15.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 306
+-- Inputs : 128
+-- Loss : 0.7493810057640076
+-- Best so far 95.0
+Epoch : 307
+-- Inputs : 128
+-- Loss : 0.7496169805526733
+-- Best so far 95.0
+Epoch : 308
+-- Inputs : 128
+-- Loss : 0.7488534450531006
+-- Best so far 95.0
+Epoch : 309
+-- Inputs : 128
+-- Loss : 0.748786985874176
+-- Best so far 95.0
+Epoch : 310
+-- Inputs : 128
+-- Loss : 0.7487466335296631
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 34.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 311
+-- Inputs : 128
+-- Loss : 0.7485990524291992
+-- Best so far 95.0
+Epoch : 312
+-- Inputs : 128
+-- Loss : 0.7495861649513245
+-- Best so far 95.0
+Epoch : 313
+-- Inputs : 128
+-- Loss : 0.7482851147651672
+-- Best so far 95.0
+Epoch : 314
+-- Inputs : 128
+-- Loss : 0.7480567097663879
+-- Best so far 95.0
+Epoch : 315
+-- Inputs : 128
+-- Loss : 0.7474033832550049
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 28.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 316
+-- Inputs : 128
+-- Loss : 0.7473861575126648
+-- Best so far 95.0
+Epoch : 317
+-- Inputs : 128
+-- Loss : 0.7473564743995667
+-- Best so far 95.0
+Epoch : 318
+-- Inputs : 128
+-- Loss : 0.7468284964561462
+-- Best so far 95.0
+Epoch : 319
+-- Inputs : 128
+-- Loss : 0.7467907071113586
+-- Best so far 95.0
+Epoch : 320
+-- Inputs : 128
+-- Loss : 0.7470875978469849
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 92.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 321
+-- Inputs : 128
+-- Loss : 0.7469383478164673
+-- Best so far 95.0
+Epoch : 322
+-- Inputs : 128
+-- Loss : 0.7471121549606323
+-- Best so far 95.0
+Epoch : 323
+-- Inputs : 128
+-- Loss : 0.7474225163459778
+-- Best so far 95.0
+Epoch : 324
+-- Inputs : 128
+-- Loss : 0.746307909488678
+-- Best so far 95.0
+Epoch : 325
+-- Inputs : 128
+-- Loss : 0.7463491559028625
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 73.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 326
+-- Inputs : 128
+-- Loss : 0.7462013959884644
+-- Best so far 95.0
+Epoch : 327
+-- Inputs : 128
+-- Loss : 0.7460607290267944
+-- Best so far 95.0
+Epoch : 328
+-- Inputs : 128
+-- Loss : 0.7459180951118469
+-- Best so far 95.0
+Epoch : 329
+-- Inputs : 128
+-- Loss : 0.7457761764526367
+-- Best so far 95.0
+Epoch : 330
+-- Inputs : 128
+-- Loss : 0.7456188201904297
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 58.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 331
+-- Inputs : 128
+-- Loss : 0.7454943060874939
+-- Best so far 95.0
+Epoch : 332
+-- Inputs : 128
+-- Loss : 0.7449665665626526
+-- Best so far 95.0
+Epoch : 333
+-- Inputs : 128
+-- Loss : 0.745896577835083
+-- Best so far 95.0
+Epoch : 334
+-- Inputs : 128
+-- Loss : 0.7450945973396301
+-- Best so far 95.0
+Epoch : 335
+-- Inputs : 128
+-- Loss : 0.7449193596839905
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 26.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 336
+-- Inputs : 128
+-- Loss : 0.7443784475326538
+-- Best so far 95.0
+Epoch : 337
+-- Inputs : 128
+-- Loss : 0.7444004416465759
+-- Best so far 95.0
+Epoch : 338
+-- Inputs : 128
+-- Loss : 0.7439103126525879
+-- Best so far 95.0
+Epoch : 339
+-- Inputs : 128
+-- Loss : 0.7443167567253113
+-- Best so far 95.0
+Epoch : 340
+-- Inputs : 128
+-- Loss : 0.7442559599876404
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 91.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 341
+-- Inputs : 128
+-- Loss : 0.744091808795929
+-- Best so far 95.0
+Epoch : 342
+-- Inputs : 128
+-- Loss : 0.7428235411643982
+-- Best so far 95.0
+Epoch : 343
+-- Inputs : 128
+-- Loss : 0.7435198426246643
+-- Best so far 95.0
+Epoch : 344
+-- Inputs : 128
+-- Loss : 0.742735743522644
+-- Best so far 95.0
+Epoch : 345
+-- Inputs : 128
+-- Loss : 0.7430096864700317
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 40.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 346
+-- Inputs : 128
+-- Loss : 0.7433472275733948
+-- Best so far 95.0
+Epoch : 347
+-- Inputs : 128
+-- Loss : 0.742654025554657
+-- Best so far 95.0
+Epoch : 348
+-- Inputs : 128
+-- Loss : 0.7432786822319031
+-- Best so far 95.0
+Epoch : 349
+-- Inputs : 128
+-- Loss : 0.7431362867355347
+-- Best so far 95.0
+Epoch : 350
+-- Inputs : 128
+-- Loss : 0.743003249168396
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 63.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 351
+-- Inputs : 128
+-- Loss : 0.7428233027458191
+-- Best so far 95.0
+Epoch : 352
+-- Inputs : 128
+-- Loss : 0.7427015900611877
+-- Best so far 95.0
+Epoch : 353
+-- Inputs : 128
+-- Loss : 0.7425768971443176
+-- Best so far 95.0
+Epoch : 354
+-- Inputs : 128
+-- Loss : 0.7424337267875671
+-- Best so far 95.0
+Epoch : 355
+-- Inputs : 128
+-- Loss : 0.7423283457756042
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 94.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 356
+-- Inputs : 128
+-- Loss : 0.7422041893005371
+-- Best so far 95.0
+Epoch : 357
+-- Inputs : 128
+-- Loss : 0.7419865131378174
+-- Best so far 95.0
+Epoch : 358
+-- Inputs : 128
+-- Loss : 0.7419582009315491
+-- Best so far 95.0
+Epoch : 359
+-- Inputs : 128
+-- Loss : 0.7411962747573853
+-- Best so far 95.0
+Epoch : 360
+-- Inputs : 128
+-- Loss : 0.7417125105857849
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 15.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 361
+-- Inputs : 128
+-- Loss : 0.7408820986747742
+-- Best so far 95.0
+Epoch : 362
+-- Inputs : 128
+-- Loss : 0.7403913140296936
+-- Best so far 95.0
+Epoch : 363
+-- Inputs : 128
+-- Loss : 0.7407945990562439
+-- Best so far 95.0
+Epoch : 364
+-- Inputs : 128
+-- Loss : 0.7407666444778442
+-- Best so far 95.0
+Epoch : 365
+-- Inputs : 128
+-- Loss : 0.7399196624755859
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 94.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 366
+-- Inputs : 128
+-- Loss : 0.7409871816635132
+-- Best so far 95.0
+Epoch : 367
+-- Inputs : 128
+-- Loss : 0.7408688068389893
+-- Best so far 95.0
+Epoch : 368
+-- Inputs : 128
+-- Loss : 0.7407503128051758
+-- Best so far 95.0
+Epoch : 369
+-- Inputs : 128
+-- Loss : 0.741980254650116
+-- Best so far 95.0
+Epoch : 370
+-- Inputs : 128
+-- Loss : 0.7405138611793518
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 4.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 371
+-- Inputs : 128
+-- Loss : 0.741142988204956
+-- Best so far 95.0
+Epoch : 372
+-- Inputs : 128
+-- Loss : 0.7392526268959045
+-- Best so far 95.0
+Epoch : 373
+-- Inputs : 128
+-- Loss : 0.7401689291000366
+-- Best so far 95.0
+Epoch : 374
+-- Inputs : 128
+-- Loss : 0.7405244708061218
+-- Best so far 95.0
+Epoch : 375
+-- Inputs : 128
+-- Loss : 0.7399410605430603
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 20.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 376
+-- Inputs : 128
+-- Loss : 0.739580512046814
+-- Best so far 95.0
+Epoch : 377
+-- Inputs : 128
+-- Loss : 0.7397148013114929
+-- Best so far 95.0
+Epoch : 378
+-- Inputs : 128
+-- Loss : 0.7396025061607361
+-- Best so far 95.0
+Epoch : 379
+-- Inputs : 128
+-- Loss : 0.7394848465919495
+-- Best so far 95.0
+Epoch : 380
+-- Inputs : 128
+-- Loss : 0.7395687103271484
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 35.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 381
+-- Inputs : 128
+-- Loss : 0.7387285828590393
+-- Best so far 95.0
+Epoch : 382
+-- Inputs : 128
+-- Loss : 0.7376648187637329
+-- Best so far 95.0
+Epoch : 383
+-- Inputs : 128
+-- Loss : 0.7390961647033691
+-- Best so far 95.0
+Epoch : 384
+-- Inputs : 128
+-- Loss : 0.7405470609664917
+-- Best so far 95.0
+Epoch : 385
+-- Inputs : 128
+-- Loss : 0.7384238243103027
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 93.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 386
+-- Inputs : 128
+-- Loss : 0.738774836063385
+-- Best so far 95.0
+Epoch : 387
+-- Inputs : 128
+-- Loss : 0.737684428691864
+-- Best so far 95.0
+Epoch : 388
+-- Inputs : 128
+-- Loss : 0.7385842204093933
+-- Best so far 95.0
+Epoch : 389
+-- Inputs : 128
+-- Loss : 0.7379823327064514
+-- Best so far 95.0
+Epoch : 390
+-- Inputs : 128
+-- Loss : 0.7383942008018494
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 95.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 391
+-- Inputs : 128
+-- Loss : 0.7382985353469849
+-- Best so far 95.0
+Epoch : 392
+-- Inputs : 128
+-- Loss : 0.7380850315093994
+-- Best so far 95.0
+Epoch : 393
+-- Inputs : 128
+-- Loss : 0.7381067276000977
+-- Best so far 95.0
+Epoch : 394
+-- Inputs : 128
+-- Loss : 0.7380093336105347
+-- Best so far 95.0
+Epoch : 395
+-- Inputs : 128
+-- Loss : 0.737908661365509
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 10.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 396
+-- Inputs : 128
+-- Loss : 0.7381561398506165
+-- Best so far 95.0
+Epoch : 397
+-- Inputs : 128
+-- Loss : 0.7375571727752686
+-- Best so far 95.0
+Epoch : 398
+-- Inputs : 128
+-- Loss : 0.7376042008399963
+-- Best so far 95.0
+Epoch : 399
+-- Inputs : 128
+-- Loss : 0.7390440702438354
+-- Best so far 95.0
+Epoch : 400
+-- Inputs : 128
+-- Loss : 0.7374199628829956
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 15.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 401
+-- Inputs : 128
+-- Loss : 0.7373140454292297
+-- Best so far 95.0
+Epoch : 402
+-- Inputs : 128
+-- Loss : 0.7372154593467712
+-- Best so far 95.0
+Epoch : 403
+-- Inputs : 128
+-- Loss : 0.736996054649353
+-- Best so far 95.0
+Epoch : 404
+-- Inputs : 128
+-- Loss : 0.7370705008506775
+-- Best so far 95.0
+Epoch : 405
+-- Inputs : 128
+-- Loss : 0.7370827794075012
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 92.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 406
+-- Inputs : 128
+-- Loss : 0.7367057204246521
+-- Best so far 95.0
+Epoch : 407
+-- Inputs : 128
+-- Loss : 0.73671555519104
+-- Best so far 95.0
+Epoch : 408
+-- Inputs : 128
+-- Loss : 0.7366160750389099
+-- Best so far 95.0
+Epoch : 409
+-- Inputs : 128
+-- Loss : 0.7365165948867798
+-- Best so far 95.0
+Epoch : 410
+-- Inputs : 128
+-- Loss : 0.7364037036895752
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 37.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 411
+-- Inputs : 128
+-- Loss : 0.736305832862854
+-- Best so far 95.0
+Epoch : 412
+-- Inputs : 128
+-- Loss : 0.736120343208313
+-- Best so far 95.0
+Epoch : 413
+-- Inputs : 128
+-- Loss : 0.7359768152236938
+-- Best so far 95.0
+Epoch : 414
+-- Inputs : 128
+-- Loss : 0.7359780669212341
+-- Best so far 95.0
+Epoch : 415
+-- Inputs : 128
+-- Loss : 0.7371674180030823
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 27.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 416
+-- Inputs : 128
+-- Loss : 0.7357283234596252
+-- Best so far 95.0
+Epoch : 417
+-- Inputs : 128
+-- Loss : 0.7365756630897522
+-- Best so far 95.0
+Epoch : 418
+-- Inputs : 128
+-- Loss : 0.7352856397628784
+-- Best so far 95.0
+Epoch : 419
+-- Inputs : 128
+-- Loss : 0.7355227470397949
+-- Best so far 95.0
+Epoch : 420
+-- Inputs : 128
+-- Loss : 0.7354729771614075
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 86.0% 9 way one-shot learning accuracy
+-- Best so far 95.0
+Epoch : 421
+-- Inputs : 128
+-- Loss : 0.7353326678276062
+-- Best so far 95.0
+Epoch : 422
+-- Inputs : 128
+-- Loss : 0.7352362275123596
+-- Best so far 95.0
+Epoch : 423
+-- Inputs : 128
+-- Loss : 0.7350825667381287
+-- Best so far 95.0
+Epoch : 424
+-- Inputs : 128
+-- Loss : 0.7343458533287048
+-- Best so far 95.0
+Epoch : 425
+-- Inputs : 128
+-- Loss : 0.7349520325660706
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 96.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 426
+-- Inputs : 128
+-- Loss : 0.7348608374595642
+-- Best so far 96.0
+Epoch : 427
+-- Inputs : 128
+-- Loss : 0.7347696423530579
+-- Best so far 96.0
+Epoch : 428
+-- Inputs : 128
+-- Loss : 0.7346782088279724
+-- Best so far 96.0
+Epoch : 429
+-- Inputs : 128
+-- Loss : 0.7345260381698608
+-- Best so far 96.0
+Epoch : 430
+-- Inputs : 128
+-- Loss : 0.7347168326377869
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 87.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 431
+-- Inputs : 128
+-- Loss : 0.7343080639839172
+-- Best so far 96.0
+Epoch : 432
+-- Inputs : 128
+-- Loss : 0.7339693307876587
+-- Best so far 96.0
+Epoch : 433
+-- Inputs : 128
+-- Loss : 0.7340648770332336
+-- Best so far 96.0
+Epoch : 434
+-- Inputs : 128
+-- Loss : 0.7341213822364807
+-- Best so far 96.0
+Epoch : 435
+-- Inputs : 128
+-- Loss : 0.7340400218963623
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 39.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 436
+-- Inputs : 128
+-- Loss : 0.7323906421661377
+-- Best so far 96.0
+Epoch : 437
+-- Inputs : 128
+-- Loss : 0.7347720861434937
+-- Best so far 96.0
+Epoch : 438
+-- Inputs : 128
+-- Loss : 0.7337700724601746
+-- Best so far 96.0
+Epoch : 439
+-- Inputs : 128
+-- Loss : 0.7346568703651428
+-- Best so far 96.0
+Epoch : 440
+-- Inputs : 128
+-- Loss : 0.7335917353630066
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 60.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 441
+-- Inputs : 128
+-- Loss : 0.7335843443870544
+-- Best so far 96.0
+Epoch : 442
+-- Inputs : 128
+-- Loss : 0.7334157228469849
+-- Best so far 96.0
+Epoch : 443
+-- Inputs : 128
+-- Loss : 0.7333655953407288
+-- Best so far 96.0
+Epoch : 444
+-- Inputs : 128
+-- Loss : 0.7342004776000977
+-- Best so far 96.0
+Epoch : 445
+-- Inputs : 128
+-- Loss : 0.7331544756889343
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 92.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 446
+-- Inputs : 128
+-- Loss : 0.7330681085586548
+-- Best so far 96.0
+Epoch : 447
+-- Inputs : 128
+-- Loss : 0.7330029606819153
+-- Best so far 96.0
+Epoch : 448
+-- Inputs : 128
+-- Loss : 0.7328962087631226
+-- Best so far 96.0
+Epoch : 449
+-- Inputs : 128
+-- Loss : 0.7328383922576904
+-- Best so far 96.0
+Epoch : 450
+-- Inputs : 128
+-- Loss : 0.7327252626419067
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 87.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 451
+-- Inputs : 128
+-- Loss : 0.7326398491859436
+-- Best so far 96.0
+Epoch : 452
+-- Inputs : 128
+-- Loss : 0.7325549721717834
+-- Best so far 96.0
+Epoch : 453
+-- Inputs : 128
+-- Loss : 0.7324700951576233
+-- Best so far 96.0
+Epoch : 454
+-- Inputs : 128
+-- Loss : 0.7307028770446777
+-- Best so far 96.0
+Epoch : 455
+-- Inputs : 128
+-- Loss : 0.7323009967803955
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 28.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 456
+-- Inputs : 128
+-- Loss : 0.7322165966033936
+-- Best so far 96.0
+Epoch : 457
+-- Inputs : 128
+-- Loss : 0.7325487732887268
+-- Best so far 96.0
+Epoch : 458
+-- Inputs : 128
+-- Loss : 0.73180091381073
+-- Best so far 96.0
+Epoch : 459
+-- Inputs : 128
+-- Loss : 0.7319645881652832
+-- Best so far 96.0
+Epoch : 460
+-- Inputs : 128
+-- Loss : 0.7318809628486633
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 16.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 461
+-- Inputs : 128
+-- Loss : 0.73289954662323
+-- Best so far 96.0
+Epoch : 462
+-- Inputs : 128
+-- Loss : 0.7310919165611267
+-- Best so far 96.0
+Epoch : 463
+-- Inputs : 128
+-- Loss : 0.7315841317176819
+-- Best so far 96.0
+Epoch : 464
+-- Inputs : 128
+-- Loss : 0.731548547744751
+-- Best so far 96.0
+Epoch : 465
+-- Inputs : 128
+-- Loss : 0.7317538857460022
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 93.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 466
+-- Inputs : 128
+-- Loss : 0.7313846349716187
+-- Best so far 96.0
+Epoch : 467
+-- Inputs : 128
+-- Loss : 0.7312780618667603
+-- Best so far 96.0
+Epoch : 468
+-- Inputs : 128
+-- Loss : 0.7312237620353699
+-- Best so far 96.0
+Epoch : 469
+-- Inputs : 128
+-- Loss : 0.7311440706253052
+-- Best so far 96.0
+Epoch : 470
+-- Inputs : 128
+-- Loss : 0.731055736541748
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 24.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 471
+-- Inputs : 128
+-- Loss : 0.7305184602737427
+-- Best so far 96.0
+Epoch : 472
+-- Inputs : 128
+-- Loss : 0.7308357357978821
+-- Best so far 96.0
+Epoch : 473
+-- Inputs : 128
+-- Loss : 0.7303295135498047
+-- Best so far 96.0
+Epoch : 474
+-- Inputs : 128
+-- Loss : 0.7307363152503967
+-- Best so far 96.0
+Epoch : 475
+-- Inputs : 128
+-- Loss : 0.7306755185127258
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 3.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 476
+-- Inputs : 128
+-- Loss : 0.7316278219223022
+-- Best so far 96.0
+Epoch : 477
+-- Inputs : 128
+-- Loss : 0.7305129766464233
+-- Best so far 96.0
+Epoch : 478
+-- Inputs : 128
+-- Loss : 0.7318081855773926
+-- Best so far 96.0
+Epoch : 479
+-- Inputs : 128
+-- Loss : 0.7303740978240967
+-- Best so far 96.0
+Epoch : 480
+-- Inputs : 128
+-- Loss : 0.7304303050041199
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 88.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 481
+-- Inputs : 128
+-- Loss : 0.7301056981086731
+-- Best so far 96.0
+Epoch : 482
+-- Inputs : 128
+-- Loss : 0.7301497459411621
+-- Best so far 96.0
+Epoch : 483
+-- Inputs : 128
+-- Loss : 0.7300893068313599
+-- Best so far 96.0
+Epoch : 484
+-- Inputs : 128
+-- Loss : 0.7300006151199341
+-- Best so far 96.0
+Epoch : 485
+-- Inputs : 128
+-- Loss : 0.7299268841743469
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 93.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 486
+-- Inputs : 128
+-- Loss : 0.7298514246940613
+-- Best so far 96.0
+Epoch : 487
+-- Inputs : 128
+-- Loss : 0.7291201949119568
+-- Best so far 96.0
+Epoch : 488
+-- Inputs : 128
+-- Loss : 0.7297007441520691
+-- Best so far 96.0
+Epoch : 489
+-- Inputs : 128
+-- Loss : 0.7296273708343506
+-- Best so far 96.0
+Epoch : 490
+-- Inputs : 128
+-- Loss : 0.7295522689819336
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 33.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 491
+-- Inputs : 128
+-- Loss : 0.7294759750366211
+-- Best so far 96.0
+Epoch : 492
+-- Inputs : 128
+-- Loss : 0.7293626666069031
+-- Best so far 96.0
+Epoch : 493
+-- Inputs : 128
+-- Loss : 0.7293300032615662
+-- Best so far 96.0
+Epoch : 494
+-- Inputs : 128
+-- Loss : 0.7292571663856506
+-- Best so far 96.0
+Epoch : 495
+-- Inputs : 128
+-- Loss : 0.7291839718818665
+-- Testing on 100 one-shot-tasks
+---- Evaluating model on one-shot tasks ...
+---- Got an average of 19.0% 9 way one-shot learning accuracy
+-- Best so far 96.0
+Epoch : 496
+-- Inputs : 128
+-- Loss : 0.7290611863136292
+-- Best so far 96.0
+Epoch : 497
+-- Inputs : 128
+-- Loss : 0.7289755344390869
+-- Best so far 96.0
+Epoch : 498
+-- Inputs : 128
+-- Loss : 0.728630006313324
+-- Best so far 96.0
+Epoch : 499
+-- Inputs : 128
+-- Loss : 0.7288947701454163
+-- Best so far 96.0
+>>> 
+
+Process Python<1> finished
