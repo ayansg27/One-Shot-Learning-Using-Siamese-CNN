@@ -1,0 +1,149 @@
+#+TITLE: One-shot Learning
+#+AUTHOR: Ayan Sengupta, Ramana Nagasamudram
+#+DATE: May 1 2018
+
+#+LATEX_CLASS: beamer
+#+LATEX_HEADER: \setbeamertemplate{navigation symbols}{}
+#+OPTIONS: toc:nil
+
+* Guidelines
+
+- Define problem
+  - What is the problem you are trying to solve?
+- Show connection to class material
+  - What is being classified, what are the classes, etc.?
+- Describe data
+  - Train/test splits etc.
+- Show results
+  - If additional experiments are in progress, describe them
+
+* Preface
+
+Our work is based on the paper 
+
+** 
+/Siamese Neural Networks for One-shot Image Recognition/
+
+Gregory Koch, Richard Zemel, and Ruslan Salakhutdinov.
+
+* Data set
+
+/Our Database of Faces (ORL Database of Faces)/
+
+AT&T Laboratories Cambridge
+- Set of face images taken between April 1992 and April 1994.
+- 40 people, 10 images for each person.
+- Each image is 92 x 112 pixels
+
+** 
+Available in scikit-learn
+#+BEGIN_SRC python
+from sklearn.datasets import fetch_olivetti_faces
+#+END_SRC
+
+* Data set
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 6cm
+[[./faces.png]]
+#+END_CENTER
+
+* Data Set - Train/Test split
+
+** Training set
+
+- First 30 classes
+- 300 images
+
+** Testing set
+
+- Last 10 classes
+- 100 images
+
+** 
+
+Notice anything different from what we've been doing in this course?
+
+* Data set
+
+- The classes aren't 'shared' between the splits
+- The model is tested on classes it has never seen before
+- This testing phase is when the model does 'One-shot recognition'
+
+* One Shot Learning -- Motivation
+
+* One Shot Learning -- Details
+
+* K-Nearest-Neighbors
+
+* One Shot Learning -- Implementation
+
+* Core Idea
+
+
+* Siamese Neural Networks -- Introduction
+
+** 
+
+/Signature Verification using a "Siamese" Time Delay Neural Network/
+
+Jane Bromley, Yann LeCun
+
+** 
+
+Signature Verification Task
+- Given two signatures, determine whether they were signed by the same person
+
+* Siamese Neural Networks -- Introduction
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 4.5cm
+[[./siamese-net.png]]
+#+END_CENTER
+
+- Two identical Neural Networks
+- Goal is to learn a distance metric
+$$E_W(X_1,X_2) = \Vert G_W(X_1) - G_W(X_2) \Vert_2$$
+
+* Siamese Neural Networks -- Introduction
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 4.5cm
+[[./siamese-net.png]]
+#+END_CENTER
+
+- If $X_1$ and $X_2$ belong to the same class, then $E_W$ is small
+- If $X_1$ and $X_2$ belong to different classes, then $E_W$ is large
+
+* Siamese Neural Networks -- Introduction
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 4.5cm
+[[./siamese-net.png]]
+#+END_CENTER
+
+- Both networks have the same weights
+- Why?
+
+* Siamese Neural Networks -- Face Recognition
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 4.5cm
+[[./siamese-net.png]]
+#+END_CENTER
+
+Weight tying guarantees that two very similar inputs cannot be mapped 
+by their respective networks to very different locations in the 
+feature space
+
+* Sample Training Batch
+
+* Sample Testing Batch
+
+* Convolutional Neural Networks
+
+* Overfitting?
+
+* Results
+
+* Papers and Further Resources
